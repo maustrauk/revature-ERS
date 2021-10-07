@@ -1,5 +1,7 @@
 package com.revature.project1.daos;
 
-public interface RoleDao extends GenericDao{
+import com.revature.project1.models.Role;
+
+public interface RoleDao extends GenericDao<Role>{
 
 }

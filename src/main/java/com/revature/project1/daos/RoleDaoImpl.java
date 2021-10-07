@@ -78,19 +78,19 @@ public class RoleDaoImpl implements RoleDao{
 	}
 
 	@Override
-	public Object update(Object entity) {
+	public Role update(Role entity) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public Object insert(Object entity) {
+	public Role insert(Role entity) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public void delete(Object entity) {
+	public void delete(Role entity) {
 		// TODO Auto-generated method stub
 		
 	}

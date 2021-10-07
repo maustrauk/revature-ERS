@@ -30,7 +30,7 @@ public class ReimbursementDaoImpl implements ReimbursementDao{
 			ResultSet result = statement.executeQuery();
 			while(result.next()) 
 			{
-				reimbursementsList.add(new Reimbursement(result.getInt(1), result.getDouble(2), result.getString(3), result.getString(4), result.getString(5), result.getByte(6), result.getInt(7), result.getInt(8), result.getInt(9), result.getInt(10)));
+				reimbursementsList.add(new Reimbursement(result.getInt(1), result.getDouble(2), result.getString(3), result.getString(4), result.getString(5), result.getArray(6), result.getInt(7), result.getInt(8), result.getInt(9), result.getInt(10)));
 			}
 		} catch (SQLException e) {
 			e.fillInStackTrace();
@@ -55,7 +55,7 @@ public class ReimbursementDaoImpl implements ReimbursementDao{
 			ResultSet result = statement.executeQuery();
 			
 			while(result.next()) {
-				reimbursement = new Reimbursement(result.getInt(1), result.getDouble(2), result.getString(3), result.getString(4), result.getString(5), result.getByte(6), result.getInt(7), result.getInt(8), result.getInt(9), result.getInt(10));
+				reimbursement = new Reimbursement(result.getInt(1), result.getDouble(2), result.getString(3), result.getString(4), result.getString(5), result.getArray(6), result.getInt(7), result.getInt(8), result.getInt(9), result.getInt(10));
 			}
 		} catch (SQLException e) {
 			e.fillInStackTrace();
@@ -76,7 +76,7 @@ public class ReimbursementDaoImpl implements ReimbursementDao{
 			statement.setString(4, entity.getReimbSubmitted());
 			statement.setString(5, entity.getReimbResolved());
 			statement.setString(6, entity.getReimbDescription());
-			statement.setByte(7, entity.getReimbReceipt());
+			statement.setArray(7, entity.getReimbReceipt());
 			statement.setInt(8, entity.getReimbAuthor());
 			statement.setInt(9, entity.getReimbResolver());
 			statement.setInt(10, entity.getReimbStatusId());
@@ -106,7 +106,7 @@ public class ReimbursementDaoImpl implements ReimbursementDao{
 			statement.setString(3, entity.getReimbSubmitted());
 			statement.setString(4, entity.getReimbResolved());
 			statement.setString(5, entity.getReimbDescription());
-			statement.setByte(6, entity.getReimbReceipt());
+			statement.setArray(6, entity.getReimbReceipt());
 			statement.setInt(7, entity.getReimbAuthor());
 			statement.setInt(8, entity.getReimbResolver());
 			statement.setInt(9, entity.getReimbStatusId());

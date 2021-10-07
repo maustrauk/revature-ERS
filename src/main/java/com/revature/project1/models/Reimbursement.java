@@ -1,12 +1,14 @@
 package com.revature.project1.models;
 
+import java.sql.Array;
+
 public class Reimbursement {
 	private int reimbId;
 	private double reimbAmount;
 	private String reimbSubmitted;
 	private String reimbResolved;
 	private String reimbDescription;
-	private byte reimbReceipt;
+	private Array reimbReceipt;
 	private int reimbAuthor;
 	private int reimbResolver;
 	private int reimbStatusId;
@@ -16,7 +18,7 @@ public class Reimbursement {
 	}
 	
 	public Reimbursement(int reimbId, double reimbAmount, String reimbSubmitted, String reimbResolved,
-			String reimbDescription, byte reimbReceipt, int reimbAuthor, int reimbResolver, int reimbStatusId,
+			String reimbDescription, Array reimbReceipt, int reimbAuthor, int reimbResolver, int reimbStatusId,
 			int reimbTypeId) {
 		this.reimbId = reimbId;
 		this.reimbAmount = reimbAmount;
@@ -63,11 +65,11 @@ public class Reimbursement {
 		this.reimbDescription = reimbDescription;
 	}
 
-	public byte getReimbReceipt() {
+	public Array getReimbReceipt() {
 		return reimbReceipt;
 	}
 
-	public void setReimbReceipt(byte reimbReceipt) {
+	public void setReimbReceipt(Array reimbReceipt) {
 		this.reimbReceipt = reimbReceipt;
 	}
 
