@@ -7,7 +7,11 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.util.Properties;
 
+import com.revature.project1.LogHelper;
+
 public class DBConnection {
+	private final LogHelper log = new LogHelper();
+	
 	ClassLoader classLoader = getClass().getClassLoader();
 	InputStream is;
 	Properties p = new Properties();
@@ -17,7 +21,7 @@ public class DBConnection {
 		try {
 			p.load(is);
 		} catch (IOException e) {
-			e.fillInStackTrace();
+			log.callFatalLogger(e);
 		}
 	}
 	

@@ -9,10 +9,12 @@ import java.sql.Types;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.revature.project1.LogHelper;
 import com.revature.project1.models.Reimbursement;
 
 public class ReimbursementDaoImpl implements ReimbursementDao{
 	private DBConnection dbCon;
+	private final LogHelper log = new LogHelper();
 	
 	public ReimbursementDaoImpl() {
 	}
@@ -33,7 +35,7 @@ public class ReimbursementDaoImpl implements ReimbursementDao{
 				reimbursementsList.add(new Reimbursement(result.getInt(1), result.getDouble(2), result.getString(3), result.getString(4), result.getString(5), result.getBytes(6), result.getInt(7), result.getInt(8), result.getInt(9), result.getInt(10)));
 			}
 		} catch (SQLException e) {
-			e.fillInStackTrace();
+			log.callFatalLogger(e);
 			}
 		return reimbursementsList;
 	}
@@ -58,7 +60,7 @@ public class ReimbursementDaoImpl implements ReimbursementDao{
 				reimbursement = new Reimbursement(result.getInt(1), result.getDouble(2), result.getString(3), result.getString(4), result.getString(5), result.getBytes(6), result.getInt(7), result.getInt(8), result.getInt(9), result.getInt(10));
 			}
 		} catch (SQLException e) {
-			e.printStackTrace();
+			log.callFatalLogger(e);
 		}
 		return reimbursement;
 	}
@@ -68,13 +70,11 @@ public class ReimbursementDaoImpl implements ReimbursementDao{
 		Reimbursement newReimbursement = new Reimbursement();
 		
 		try(Connection con = dbCon.getDBConnection()) {
-			String sql = "{? = call update_user(?,?,?,?,?,?,?,?,?,?)}";
+			String sql = "{? = call update_reimbursement(?,?,?,?,?,?,?,?)}";
 			CallableStatement statement = con.prepareCall(sql);
 			statement.registerOutParameter(1, Types.INTEGER);
 			statement.setInt(2, entity.getReimbId());
 			statement.setDouble(3, entity.getReimbAmount());
-			statement.setString(4, entity.getReimbSubmitted());
-			statement.setString(5, entity.getReimbResolved());
 			statement.setString(6, entity.getReimbDescription());
 			statement.setBytes(7, entity.getReimbReceipt());
 			statement.setInt(8, entity.getReimbAuthor());
@@ -89,7 +89,7 @@ public class ReimbursementDaoImpl implements ReimbursementDao{
 			newReimbursement = getById(statement.getInt(1));
 			
 		} catch (SQLException e) {
-			e.printStackTrace();
+			log.callFatalLogger(e);
 		}
 		
 		
@@ -114,7 +114,7 @@ public class ReimbursementDaoImpl implements ReimbursementDao{
 			entity = getById(statement.getInt(1));
 			
 		} catch (SQLException e) {
-			e.printStackTrace();
+			log.callFatalLogger(e);
 		}
 		
 		return entity;
@@ -132,7 +132,7 @@ public class ReimbursementDaoImpl implements ReimbursementDao{
 			System.out.println(statement.getString(1));
 			
 		} catch (SQLException e) {
-			e.printStackTrace();
+			log.callFatalLogger(e);
 		}
 		
 	}
@@ -160,7 +160,7 @@ public class ReimbursementDaoImpl implements ReimbursementDao{
 			entity = getById(statement.getInt(1));
 			
 		} catch (SQLException e) {
-			e.printStackTrace();
+			log.callFatalLogger(e);
 		}
 		
 		return entity;

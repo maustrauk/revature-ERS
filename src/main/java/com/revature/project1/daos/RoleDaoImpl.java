@@ -7,11 +7,13 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.revature.project1.LogHelper;
 import com.revature.project1.models.Role;
 
 public class RoleDaoImpl implements RoleDao{
 	
 	private DBConnection dbCon;
+	private final LogHelper log = new LogHelper();
 	
 	public RoleDaoImpl() {
 	}
@@ -33,7 +35,7 @@ public class RoleDaoImpl implements RoleDao{
 			}
 			
 		} catch (SQLException e) {
-			e.printStackTrace();
+			log.callFatalLogger(e);
 		}
 		
 		return rolesList;
@@ -53,7 +55,7 @@ public class RoleDaoImpl implements RoleDao{
 				role = new Role(result.getInt(1), result.getString(2));
 			}
 		} catch (SQLException e) {
-			e.printStackTrace();
+			log.callFatalLogger(e);
 		}
 		return role;
 	}
@@ -72,7 +74,7 @@ public class RoleDaoImpl implements RoleDao{
 				role = new Role(result.getInt(1), result.getString(2));
 			}
 		} catch (SQLException e) {
-			e.printStackTrace();
+			log.callFatalLogger(e);
 		}
 		return role;
 	}

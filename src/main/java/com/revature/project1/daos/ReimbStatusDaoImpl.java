@@ -7,10 +7,12 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.revature.project1.LogHelper;
 import com.revature.project1.models.ReimbStatus;
 
 public class ReimbStatusDaoImpl implements ReimbStatusDao{
 	private DBConnection dbCon;
+	private final LogHelper log = new LogHelper();
 
 	public ReimbStatusDaoImpl() {
 	}
@@ -31,7 +33,7 @@ public class ReimbStatusDaoImpl implements ReimbStatusDao{
 				reimbStatusList.add(new ReimbStatus(result.getInt(1), result.getString(2)));
 			}
 		} catch (SQLException e) {
-			e.printStackTrace();
+			log.callFatalLogger(e);
 			}
 		return reimbStatusList;
 	}
@@ -50,7 +52,7 @@ public class ReimbStatusDaoImpl implements ReimbStatusDao{
 				reimbStatus = new ReimbStatus(result.getInt(1), result.getString(2));
 			}
 		} catch (SQLException e) {
-			e.printStackTrace();
+			log.callFatalLogger(e);
 		}
 		return reimbStatus;
 	}
@@ -69,7 +71,7 @@ public class ReimbStatusDaoImpl implements ReimbStatusDao{
 				reimbStatus = new ReimbStatus(result.getInt(1), result.getString(2));
 			}
 		} catch (SQLException e) {
-			e.printStackTrace();
+			log.callFatalLogger(e);
 		}
 		return reimbStatus;
 	}
