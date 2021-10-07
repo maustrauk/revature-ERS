@@ -35,7 +35,8 @@ public class Reimbursement {
 	}
 
 	public void setReimbAmount(double reimbAmount) {
-		this.reimbAmount = reimbAmount;
+		double roundOff = Math.round(reimbAmount * 100.0) / 100.0;
+		this.reimbAmount = roundOff;
 	}
 
 	public String getReimbSubmitted() {
