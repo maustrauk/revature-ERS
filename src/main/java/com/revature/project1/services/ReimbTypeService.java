@@ -15,7 +15,7 @@ public class ReimbTypeService {
 		this.reimbTypeDao = reimbTypeDao;
 	}
 	
-	public List<ReimbType> getAllRoles() {
+	public List<ReimbType> getAllReimbTypes() {
 		return reimbTypeDao.getAll();
 	}
 	
