@@ -85,7 +85,12 @@ public class UserDaoImpl implements UserDao{
 			CallableStatement statement = con.prepareCall(sql);
 			statement.registerOutParameter(1, Types.VARCHAR);
 			statement.setInt(2, entity.getUserId());
-			
+			statement.setString(3, entity.getUserName());
+			statement.setString(4, entity.getUserPassword());
+			statement.setString(5, entity.getUserFirstName());
+			statement.setString(6, entity.getUserLastName());
+			statement.setString(7, entity.getUserEmail());
+			statement.setInt(8, entity.getUserRoleId());
 			statement.execute();
 			
 			System.out.println(statement.getString(1));

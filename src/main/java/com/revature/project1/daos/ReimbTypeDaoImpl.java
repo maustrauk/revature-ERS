@@ -7,7 +7,6 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.revature.project1.models.ReimbStatus;
 import com.revature.project1.models.ReimbType;
 
 public class ReimbTypeDaoImpl implements ReimbTypeDao{
