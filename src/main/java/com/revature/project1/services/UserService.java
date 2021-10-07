@@ -15,7 +15,7 @@ public class UserService {
 		this.uDao = uDao;
 	}
 	
-	public List<User> getAllRoles() {
+	public List<User> getAllUsers() {
 		return uDao.getAll();
 	}
 	
