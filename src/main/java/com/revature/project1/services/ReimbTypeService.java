@@ -19,7 +19,7 @@ public class ReimbTypeService {
 		return reimbTypeDao.getAll();
 	}
 	
-	public ReimbType getRoleByName(String name) {
+	public ReimbType getReimbTypeByName(String name) {
 		ReimbType reimbType = reimbTypeDao.getByName(name);
 		if (reimbType == null) {
 			throw new NullPointerException("There isn't a type with name: " + name);
@@ -27,7 +27,7 @@ public class ReimbTypeService {
 		return reimbType;
 	}
 	
-	public ReimbType getRoleById(int id) {
+	public ReimbType getReimbTypeById(int id) {
 		ReimbType reimbType = reimbTypeDao.getById(id);
 		if (reimbType == null) {
 			throw new NullPointerException("There isn't a type with id: " + id);
