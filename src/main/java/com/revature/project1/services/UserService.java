@@ -2,17 +2,35 @@ package com.revature.project1.services;
 
 import java.util.List;
 
+import com.revature.project1.LogHelper;
 import com.revature.project1.daos.UserDaoImpl;
 import com.revature.project1.models.User;
 
 public class UserService {
 	private UserDaoImpl uDao;
+	private final LogHelper log = new LogHelper();
 	
 	public UserService() {
 	}
 
 	public UserService(UserDaoImpl uDao) {
 		this.uDao = uDao;
+	}
+	
+	public User verifyLoginCredentials(String uName, String uPassword) {
+		User user = new User();
+		try {
+			user = getUserByName(uName);
+			if (user.getUserPassword().equals(uPassword)) {
+				return user;
+			} else {
+				log.callErrorLogger("Wrong Password");
+				return user;
+			}
+		} catch (Exception e){
+			log.callErrorLogger(e);
+			return user;
+		}
 	}
 	
 	public List<User> getAllUsers() {

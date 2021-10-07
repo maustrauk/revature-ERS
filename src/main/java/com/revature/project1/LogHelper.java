@@ -21,6 +21,11 @@ public class LogHelper {
 		log.error(e);
 	}
 	
+	public void callErrorLogger(String e) {
+		log.setLevel(Level.DEBUG);
+		log.error(e);
+	}
+	
 	public void callExceptionLogger(Exception e) {
 		log.setLevel(Level.DEBUG);
 		log.debug(e);
