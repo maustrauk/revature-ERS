@@ -1,14 +1,12 @@
 package com.revature.project1.models;
 
-import java.sql.Array;
-
 public class Reimbursement {
 	private int reimbId;
 	private double reimbAmount;
 	private String reimbSubmitted;
 	private String reimbResolved;
 	private String reimbDescription;
-	private Array reimbReceipt;
+	private byte[] reimbReceipt;
 	private int reimbAuthor;
 	private int reimbResolver;
 	private int reimbStatusId;
@@ -17,8 +15,34 @@ public class Reimbursement {
 	public Reimbursement() {
 	}
 	
+	public Reimbursement( double reimbAmount, String reimbDescription, byte[] reimbReceipt, int reimbAuthor, int reimbResolver, int reimbStatusId,
+			int reimbTypeId) {
+		this.reimbAmount = reimbAmount;
+		this.reimbDescription = reimbDescription;
+		this.reimbReceipt = reimbReceipt;
+		this.reimbAuthor = reimbAuthor;
+		this.reimbResolver = reimbResolver;
+		this.reimbStatusId = reimbStatusId;
+		this.reimbTypeId = reimbTypeId;
+	}
+	
+	public Reimbursement( double reimbAmount, String reimbSubmitted, String reimbResolved,
+			String reimbDescription, byte[] reimbReceipt, int reimbAuthor, int reimbResolver, int reimbStatusId,
+			int reimbTypeId) {
+		this.reimbAmount = reimbAmount;
+		this.reimbSubmitted = reimbSubmitted;
+		this.reimbResolved = reimbResolved;
+		this.reimbDescription = reimbDescription;
+		this.reimbReceipt = reimbReceipt;
+		this.reimbAuthor = reimbAuthor;
+		this.reimbResolver = reimbResolver;
+		this.reimbStatusId = reimbStatusId;
+		this.reimbTypeId = reimbTypeId;
+	}
+	
+
 	public Reimbursement(int reimbId, double reimbAmount, String reimbSubmitted, String reimbResolved,
-			String reimbDescription, Array reimbReceipt, int reimbAuthor, int reimbResolver, int reimbStatusId,
+			String reimbDescription, byte[] reimbReceipt, int reimbAuthor, int reimbResolver, int reimbStatusId,
 			int reimbTypeId) {
 		this.reimbId = reimbId;
 		this.reimbAmount = reimbAmount;
@@ -65,11 +89,11 @@ public class Reimbursement {
 		this.reimbDescription = reimbDescription;
 	}
 
-	public Array getReimbReceipt() {
+	public byte[] getReimbReceipt() {
 		return reimbReceipt;
 	}
 
-	public void setReimbReceipt(Array reimbReceipt) {
+	public void setReimbReceipt(byte[] reimbReceipt) {
 		this.reimbReceipt = reimbReceipt;
 	}
 

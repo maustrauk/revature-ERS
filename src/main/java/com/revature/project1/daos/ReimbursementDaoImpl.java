@@ -30,7 +30,7 @@ public class ReimbursementDaoImpl implements ReimbursementDao{
 			ResultSet result = statement.executeQuery();
 			while(result.next()) 
 			{
-				reimbursementsList.add(new Reimbursement(result.getInt(1), result.getDouble(2), result.getString(3), result.getString(4), result.getString(5), result.getArray(6), result.getInt(7), result.getInt(8), result.getInt(9), result.getInt(10)));
+				reimbursementsList.add(new Reimbursement(result.getInt(1), result.getDouble(2), result.getString(3), result.getString(4), result.getString(5), result.getBytes(6), result.getInt(7), result.getInt(8), result.getInt(9), result.getInt(10)));
 			}
 		} catch (SQLException e) {
 			e.fillInStackTrace();
@@ -55,10 +55,10 @@ public class ReimbursementDaoImpl implements ReimbursementDao{
 			ResultSet result = statement.executeQuery();
 			
 			while(result.next()) {
-				reimbursement = new Reimbursement(result.getInt(1), result.getDouble(2), result.getString(3), result.getString(4), result.getString(5), result.getArray(6), result.getInt(7), result.getInt(8), result.getInt(9), result.getInt(10));
+				reimbursement = new Reimbursement(result.getInt(1), result.getDouble(2), result.getString(3), result.getString(4), result.getString(5), result.getBytes(6), result.getInt(7), result.getInt(8), result.getInt(9), result.getInt(10));
 			}
 		} catch (SQLException e) {
-			e.fillInStackTrace();
+			e.printStackTrace();
 		}
 		return reimbursement;
 	}
@@ -76,7 +76,7 @@ public class ReimbursementDaoImpl implements ReimbursementDao{
 			statement.setString(4, entity.getReimbSubmitted());
 			statement.setString(5, entity.getReimbResolved());
 			statement.setString(6, entity.getReimbDescription());
-			statement.setArray(7, entity.getReimbReceipt());
+			statement.setBytes(7, entity.getReimbReceipt());
 			statement.setInt(8, entity.getReimbAuthor());
 			statement.setInt(9, entity.getReimbResolver());
 			statement.setInt(10, entity.getReimbStatusId());
@@ -89,7 +89,7 @@ public class ReimbursementDaoImpl implements ReimbursementDao{
 			newReimbursement = getById(statement.getInt(1));
 			
 		} catch (SQLException e) {
-			e.fillInStackTrace();
+			e.printStackTrace();
 		}
 		
 		
@@ -99,24 +99,22 @@ public class ReimbursementDaoImpl implements ReimbursementDao{
 	@Override
 	public Reimbursement insert(Reimbursement entity) {
 		try(Connection con = dbCon.getDBConnection()) {
-			String sql = "{? = call insert_reimbursement(?,?,?,?,?,?,?,?,?)}";
+			String sql = "{? = call insert_reimbursement(?, ?, ?, ?, ?, ?, ?)}";
 			CallableStatement statement = con.prepareCall(sql);
 			statement.registerOutParameter(1, Types.INTEGER);
 			statement.setDouble(2, entity.getReimbAmount());
-			statement.setString(3, entity.getReimbSubmitted());
-			statement.setString(4, entity.getReimbResolved());
-			statement.setString(5, entity.getReimbDescription());
-			statement.setArray(6, entity.getReimbReceipt());
-			statement.setInt(7, entity.getReimbAuthor());
-			statement.setInt(8, entity.getReimbResolver());
-			statement.setInt(9, entity.getReimbStatusId());
-			statement.setInt(10, entity.getReimbTypeId());
+			statement.setString(3, entity.getReimbDescription());
+			statement.setBytes(4, entity.getReimbReceipt());
+			statement.setInt(5, entity.getReimbAuthor());
+			statement.setInt(6, entity.getReimbResolver());
+			statement.setInt(7, entity.getReimbStatusId());
+			statement.setInt(8, entity.getReimbTypeId());
 			statement.execute();
 			
 			entity = getById(statement.getInt(1));
 			
 		} catch (SQLException e) {
-			e.fillInStackTrace();
+			e.printStackTrace();
 		}
 		
 		return entity;
@@ -134,7 +132,7 @@ public class ReimbursementDaoImpl implements ReimbursementDao{
 			System.out.println(statement.getString(1));
 			
 		} catch (SQLException e) {
-			e.fillInStackTrace();
+			e.printStackTrace();
 		}
 		
 	}
@@ -143,5 +141,28 @@ public class ReimbursementDaoImpl implements ReimbursementDao{
 	public void deleteAll() {
 		// TODO Auto-generated method stub
 		
+	}
+
+	@Override
+	public Reimbursement insertWithoutProof(Reimbursement entity) {
+		try(Connection con = dbCon.getDBConnection()) {
+			String sql = "{? = call insert_reimbursement_noproof(?, ?, ?, ?, ?, ?)}";
+			CallableStatement statement = con.prepareCall(sql);
+			statement.registerOutParameter(1, Types.INTEGER);
+			statement.setDouble(2, entity.getReimbAmount());
+			statement.setString(3, entity.getReimbDescription());
+			statement.setInt(4, entity.getReimbAuthor());
+			statement.setInt(5, entity.getReimbResolver());
+			statement.setInt(6, entity.getReimbStatusId());
+			statement.setInt(7, entity.getReimbTypeId());
+			statement.execute();
+			
+			entity = getById(statement.getInt(1));
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		return entity;
 	}
 }

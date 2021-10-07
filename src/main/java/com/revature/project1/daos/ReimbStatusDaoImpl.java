@@ -31,7 +31,7 @@ public class ReimbStatusDaoImpl implements ReimbStatusDao{
 				reimbStatusList.add(new ReimbStatus(result.getInt(1), result.getString(2)));
 			}
 		} catch (SQLException e) {
-			e.fillInStackTrace();
+			e.printStackTrace();
 			}
 		return reimbStatusList;
 	}
@@ -50,7 +50,7 @@ public class ReimbStatusDaoImpl implements ReimbStatusDao{
 				reimbStatus = new ReimbStatus(result.getInt(1), result.getString(2));
 			}
 		} catch (SQLException e) {
-			e.fillInStackTrace();
+			e.printStackTrace();
 		}
 		return reimbStatus;
 	}
@@ -69,7 +69,7 @@ public class ReimbStatusDaoImpl implements ReimbStatusDao{
 				reimbStatus = new ReimbStatus(result.getInt(1), result.getString(2));
 			}
 		} catch (SQLException e) {
-			e.fillInStackTrace();
+			e.printStackTrace();
 		}
 		return reimbStatus;
 	}

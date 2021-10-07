@@ -22,8 +22,12 @@ public class ReimbursementService {
 	public Reimbursement insertReimbursement(Reimbursement reimbursement) {
 		
 		Reimbursement newReimbursement = reimbDao.insert(reimbursement);
+		return newReimbursement;
+	}
+	
+	public Reimbursement insertReimbursementWithoutProof(Reimbursement reimbursement) {
 		
-		
+		Reimbursement newReimbursement = reimbDao.insertWithoutProof(reimbursement);
 		return newReimbursement;
 	}
 	

@@ -33,7 +33,7 @@ public class RoleDaoImpl implements RoleDao{
 			}
 			
 		} catch (SQLException e) {
-			e.fillInStackTrace();
+			e.printStackTrace();
 		}
 		
 		return rolesList;
@@ -53,7 +53,7 @@ public class RoleDaoImpl implements RoleDao{
 				role = new Role(result.getInt(1), result.getString(2));
 			}
 		} catch (SQLException e) {
-			e.fillInStackTrace();
+			e.printStackTrace();
 		}
 		return role;
 	}
@@ -72,7 +72,7 @@ public class RoleDaoImpl implements RoleDao{
 				role = new Role(result.getInt(1), result.getString(2));
 			}
 		} catch (SQLException e) {
-			e.fillInStackTrace();
+			e.printStackTrace();
 		}
 		return role;
 	}

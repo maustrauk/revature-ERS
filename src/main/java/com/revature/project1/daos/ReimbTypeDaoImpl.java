@@ -31,7 +31,7 @@ public class ReimbTypeDaoImpl implements ReimbTypeDao{
 				reimbTypeList.add(new ReimbType(result.getInt(1), result.getString(2)));
 			}
 		} catch (SQLException e) {
-			e.fillInStackTrace();
+			e.printStackTrace();
 			}
 		return reimbTypeList;
 	}
@@ -50,7 +50,7 @@ public class ReimbTypeDaoImpl implements ReimbTypeDao{
 				reimbType = new ReimbType(result.getInt(1), result.getString(2));
 			}
 		} catch (SQLException e) {
-			e.fillInStackTrace();
+			e.printStackTrace();
 		}
 		return reimbType;
 	}
@@ -69,7 +69,7 @@ public class ReimbTypeDaoImpl implements ReimbTypeDao{
 				reimbType = new ReimbType(result.getInt(1), result.getString(2));
 			}
 		} catch (SQLException e) {
-			e.fillInStackTrace();
+			e.printStackTrace();
 		}
 		return reimbType;
 	}

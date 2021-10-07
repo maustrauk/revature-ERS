@@ -41,4 +41,8 @@ public class ServiceLoader {
 		return new ReimbursementService(reimbDao);
 	}
 	
+	public DBConnection  getConnection() {
+		return con;
+	}
+	
 }
