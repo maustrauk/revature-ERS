@@ -6,7 +6,7 @@ public class Reimbursement {
 	private String reimbSubmitted;
 	private String reimbResolved;
 	private String reimbDescription;
-	private String reimbReceipt;
+	private byte reimbReceipt;
 	private int reimbAuthor;
 	private int reimbResolver;
 	private int reimbStatusId;
@@ -16,7 +16,7 @@ public class Reimbursement {
 	}
 	
 	public Reimbursement(int reimbId, double reimbAmount, String reimbSubmitted, String reimbResolved,
-			String reimbDescription, String reimbReceipt, int reimbAuthor, int reimbResolver, int reimbStatusId,
+			String reimbDescription, byte reimbReceipt, int reimbAuthor, int reimbResolver, int reimbStatusId,
 			int reimbTypeId) {
 		this.reimbId = reimbId;
 		this.reimbAmount = reimbAmount;
@@ -62,11 +62,11 @@ public class Reimbursement {
 		this.reimbDescription = reimbDescription;
 	}
 
-	public String getReimbReceipt() {
+	public byte getReimbReceipt() {
 		return reimbReceipt;
 	}
 
-	public void setReimbReceipt(String reimbReceipt) {
+	public void setReimbReceipt(byte reimbReceipt) {
 		this.reimbReceipt = reimbReceipt;
 	}
 
