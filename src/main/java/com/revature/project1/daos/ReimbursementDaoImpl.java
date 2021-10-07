@@ -70,7 +70,7 @@ public class ReimbursementDaoImpl implements ReimbursementDao{
 		try(Connection con = dbCon.getDBConnection()) {
 			String sql = "{? = call update_user(?,?,?,?,?,?,?,?,?,?)}";
 			CallableStatement statement = con.prepareCall(sql);
-			statement.registerOutParameter(1, Types.VARCHAR);
+			statement.registerOutParameter(1, Types.INTEGER);
 			statement.setInt(2, entity.getReimbId());
 			statement.setDouble(3, entity.getReimbAmount());
 			statement.setString(4, entity.getReimbSubmitted());
@@ -86,7 +86,7 @@ public class ReimbursementDaoImpl implements ReimbursementDao{
 			statement.execute();
 			
 			System.out.println(statement.getString(1));
-			newReimbursement = getById(entity.getReimbId());
+			newReimbursement = getById(statement.getInt(1));
 			
 		} catch (SQLException e) {
 			e.fillInStackTrace();
