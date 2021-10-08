@@ -29,4 +29,16 @@
 	  	<servlet-name>IndirectServObj</servlet-name>
 	  	<url-pattern>/indirserv</url-pattern>
 	  </servlet-mapping>
+
+  <!-- Session Servlet Config -->
+    <servlet>
+  		<servlet-name>SessionServObj</servlet-name>
+  		<servlet-class>com.revature.project1.servlets.SessionServlet</servlet-class>
+  	</servlet>
+  	
+  <!-- Mapping Servlet to URI pattern -->
+	  <servlet-mapping>
+	  	<servlet-name>SessionServObj</servlet-name>
+	  	<url-pattern>/sessserv</url-pattern>
+	  </servlet-mapping>
 </web-app>
