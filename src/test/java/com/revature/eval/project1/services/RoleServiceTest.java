@@ -4,6 +4,9 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.mockito.Mockito.when;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mock;
@@ -18,6 +21,7 @@ public class RoleServiceTest {
 	private RoleDaoImpl rDao;
 	private RoleService rServ;
 	private Role testRole;
+	private List<Role> allRoles;
 	
 	@SuppressWarnings("deprecation")
 	@BeforeEach
@@ -25,8 +29,12 @@ public class RoleServiceTest {
 		MockitoAnnotations.initMocks(this);
 		rServ = new RoleService(rDao);
 		testRole = new Role(1,"EMPLOYEE");
+		allRoles = new ArrayList<Role>();
+		allRoles.add(testRole);
+		
 		when(rDao.getByName("EMPLOYEE")).thenReturn(testRole);
 		when(rDao.getById(1)).thenReturn(testRole);
+		when(rDao.getAll()).thenReturn(allRoles);
 	}
 	
 	@Test
@@ -37,6 +45,11 @@ public class RoleServiceTest {
 	@Test
 	public void  testGetRoleByIdSuccess() {
 		assertEquals(rServ.getRoleById(1), testRole);
+	}
+	
+	@Test
+	public void testGetAllRolesSuccess() {
+		assertEquals(rServ.getAllRoles(), allRoles);
 	}
 	
 	@Test
