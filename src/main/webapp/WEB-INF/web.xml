@@ -17,4 +17,16 @@
   	<servlet-name>DirectServObj</servlet-name>
   	<url-pattern>/dirserv</url-pattern>
   </servlet-mapping>
+  
+  <!-- Indirect Servlet Config -->
+    <servlet>
+  		<servlet-name>IndirectServObj</servlet-name>
+  		<servlet-class>com.revature.project1.servlets.IndirectServlet</servlet-class>
+  	</servlet>
+  	
+  <!-- Mapping Servlet to URI pattern -->
+	  <servlet-mapping>
+	  	<servlet-name>IndirectServObj</servlet-name>
+	  	<url-pattern>/indirserv</url-pattern>
+	  </servlet-mapping>
 </web-app>
