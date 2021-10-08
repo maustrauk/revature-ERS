@@ -9,7 +9,7 @@
   <!-- Direct Servlet Config -->
   <servlet>
   	<servlet-name>DirectServObj</servlet-name>
-  	<servlet-clacc>com.revature.project1.servlets.DirectServlet</servlet-clacc>
+  	<servlet-class>com.revature.project1.servlets.DirectServlet</servlet-class>
   </servlet>
   
   <!-- Mapping Servlet to URI pattern -->
