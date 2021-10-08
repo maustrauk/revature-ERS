@@ -8,6 +8,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.revature.project1.models.User;
+
 public class DirectServlet extends HttpServlet{
 
 	@Override
@@ -22,7 +25,11 @@ public class DirectServlet extends HttpServlet{
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		super.doPost(req, resp);
+		//super.doPost(req, resp);
+		resp.setContentType("application/json");
+		User testUser = new User("Test", "Test", "Test", "Test", "Test", 1);
+		
+		resp.getWriter().write(new ObjectMapper().writeValueAsString(testUser));
 	} 
 	
 }
