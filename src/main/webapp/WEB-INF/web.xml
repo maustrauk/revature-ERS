@@ -41,4 +41,16 @@
 	  	<servlet-name>SessionServObj</servlet-name>
 	  	<url-pattern>/sessserv</url-pattern>
 	  </servlet-mapping>
+	  
+  <!-- View Servlet Config -->
+    <servlet>
+  		<servlet-name>ViewServObj</servlet-name>
+  		<servlet-class>com.revature.project1.servlets.ViewServlet</servlet-class>
+  	</servlet>
+  	
+  <!-- Mapping Servlet to URI pattern -->
+	  <servlet-mapping>
+	  	<servlet-name>ViewServObj</servlet-name>
+	  	<url-pattern>*.change</url-pattern>
+	  </servlet-mapping>	  
 </web-app>
