@@ -26,8 +26,7 @@ public class ReimbController {
 		} catch (Exception e) {
 			log.callErrorLogger(e);
 			reimbReceipt = new byte[0];
-		}
-		
+		}	
 		
 		Reimbursement newReimb = new Reimbursement();
 		newReimb.setReimbAmount(Double.parseDouble(req.getParameter("amount")));
@@ -36,6 +35,7 @@ public class ReimbController {
 		newReimb.setReimbReceipt(reimbReceipt);
 		newReimb.setReimbStatusId(3);
 		newReimb.setReimbTypeId(Integer.parseInt(req.getParameter("reimbType")));
+		
 		
 		Reimbursement reimb = sLoader.getReimbursementService().addReimbForCheck(newReimb, req.getParameter("username"));
 		if(reimb == null) {

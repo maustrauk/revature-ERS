@@ -65,4 +65,15 @@
 	  	<servlet-name>InsertUserServObj</servlet-name>
 	  	<url-pattern>*.signUp</url-pattern>
 	  </servlet-mapping>	
+  <!-- AddReimb Servlet Config -->
+    <servlet>
+  		<servlet-name>AddReimbServObj</servlet-name>
+  		<servlet-class>com.revature.project1.servlets.AddReimbServlet</servlet-class>
+  	</servlet>
+  	
+  <!-- Mapping Servlet to URI pattern -->
+	  <servlet-mapping>
+	  	<servlet-name>AddReimbServObj</servlet-name>
+	  	<url-pattern>*.reimb</url-pattern>
+	  </servlet-mapping>	
 </web-app>

@@ -51,9 +51,12 @@ public class ReimbursementService {
 	}
 	
 	public byte[] getFileStream (String path) throws IOException, FileNotFoundException {
-		File file = new File(path);
+		String updPath = "C:\\FileTest\\" + path;
+		File file = new File(updPath);
+		System.out.println("File loaded");
 		byte[] receipt = new byte[(int)file.length()];
 		FileInputStream fis = new FileInputStream(file);
+		System.out.println("Stream started");
 		int bytesRead = fis.read(receipt);
 		while (bytesRead != -1) {
 			bytesRead = fis.read(receipt);

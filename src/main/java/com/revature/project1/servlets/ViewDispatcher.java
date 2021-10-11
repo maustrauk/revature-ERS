@@ -8,7 +8,6 @@ public class ViewDispatcher {
 	private UserController uCont = new UserController();
 	
 	public ViewDispatcher() {
-		// TODO Auto-generated constructor stub
 	}
 
 	public String process(HttpServletRequest req) {

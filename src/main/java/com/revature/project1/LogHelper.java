@@ -28,6 +28,7 @@ public class LogHelper {
 	
 	public void callExceptionLogger(Exception e) {
 		log.setLevel(Level.DEBUG);
+		e.printStackTrace();
 		log.debug(e);
 	}
 	

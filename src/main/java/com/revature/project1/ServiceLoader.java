@@ -38,7 +38,7 @@ public class ServiceLoader {
 	}
 	
 	public ReimbursementService getReimbursementService() {
-		return new ReimbursementService(reimbDao);
+		return new ReimbursementService(reimbDao, uDao);
 	}
 	
 	public DBConnection  getConnection() {
