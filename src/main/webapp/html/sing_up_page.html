@@ -23,7 +23,7 @@
 	          <div class="row g-3">
 	            <div class="col-sm-6">
 	              <label for="firstName" class="form-label">First name</label>
-	              <input type="text" class="form-control" id="firstName" placeholder="" value="" required>
+	              <input type="text" class="form-control" id="firstName" placeholder="First name" value="" required>
 	              <div class="invalid-feedback">
 	                Valid first name is required.
 	              </div>
@@ -31,7 +31,7 @@
 	
 	            <div class="col-sm-6">
 	              <label for="lastName" class="form-label">Last name</label>
-	              <input type="text" class="form-control" id="lastName" placeholder="" value="" required>
+	              <input type="text" class="form-control" id="lastName" placeholder="Last name" value="" required>
 	              <div class="invalid-feedback">
 	                Valid last name is required.
 	              </div>
@@ -49,12 +49,14 @@
 	
 	            <div class="col-12">
 	              <label for="email" class="form-label">Email</label>
-	              <input type="email" class="form-control" id="email" placeholder="you@example.com">
-	              <div class="invalid-feedback">
-	                Please enter a valid email address for shipping updates.
-	              </div>
+	              <div class="input-group has-validation">
+	              	<input type="email" class="form-control" id="email" placeholder="you@example.com" required>
+	              	<div class="invalid-feedback">
+	                Please enter a valid email address.
+	             	</div>
+	             </div>
 	            </div>
-				</div>
+			</div>
 	
 	          <hr class="my-4">
 	
@@ -69,7 +71,7 @@
   </footer>
 </div>
 
-
+	<script src="../js/form-validation.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
 </body>
