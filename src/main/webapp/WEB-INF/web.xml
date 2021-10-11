@@ -52,5 +52,17 @@
 	  <servlet-mapping>
 	  	<servlet-name>ViewServObj</servlet-name>
 	  	<url-pattern>*.change</url-pattern>
-	  </servlet-mapping>	  
+	  </servlet-mapping>	
+	    
+ <!-- InsertUser Servlet Config -->
+    <servlet>
+  		<servlet-name>InsertUserServObj</servlet-name>
+  		<servlet-class>com.revature.project1.servlets.InsertUserServlet</servlet-class>
+  	</servlet>
+  	
+  <!-- Mapping Servlet to URI pattern -->
+	  <servlet-mapping>
+	  	<servlet-name>InsertUserServObj</servlet-name>
+	  	<url-pattern>*.signUp</url-pattern>
+	  </servlet-mapping>	
 </web-app>

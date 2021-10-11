@@ -4,18 +4,14 @@ import javax.servlet.http.HttpServletRequest;
 
 import com.revature.project1.controllers.UserController;
 
-public class ViewDispatcher {
+public class InsertUserDispatcher {
 	private UserController uCont = new UserController();
 	
-	public ViewDispatcher() {
-		// TODO Auto-generated constructor stub
-	}
-
 	public String process(HttpServletRequest req) {
 		switch(req.getRequestURI()) {
-		case "/project1/login.change":
+		case "/project1/login.signUp":
 			System.out.println("in login.change dispatcher");
-			return uCont.login(req);
+			return uCont.signUp(req);
 		default:
 			System.out.println("in default");
 			return "html/sign_in_page.html";
