@@ -14,7 +14,7 @@ public class UserController {
 	public String login(HttpServletRequest req) {
 		System.out.println("In user controller login");
 		if(!req.getMethod().equals("POST")) {
-			return "html/unsuccessfullogin.html";
+			return "html/sign_in_page.html";
 		}
 		
 		User user = sLoader.getUserService().verifyLoginCredentials(req.getParameter("username"), req.getParameter("password"));
