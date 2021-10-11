@@ -10,7 +10,7 @@ public class InsertUserDispatcher {
 	public String process(HttpServletRequest req) {
 		switch(req.getRequestURI()) {
 		case "/project1/login.signUp":
-			System.out.println("in login.change dispatcher");
+			System.out.println("in login.signUp dispatcher");
 			return uCont.signUp(req);
 		default:
 			System.out.println("in default");

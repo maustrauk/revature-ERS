@@ -41,7 +41,7 @@ public class UserController {
 			return "exist.change";
 		} else {
 			req.getSession().setAttribute("currentUser", user);
-			return "html/sign_in_page.html";
+			return "html/home.html";
 		}
 	}
 }
