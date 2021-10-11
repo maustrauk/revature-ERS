@@ -12,6 +12,7 @@ import com.revature.project1.LogHelper;
 public class DBConnection {
 	private final LogHelper log = new LogHelper();
 	
+	
 	ClassLoader classLoader = getClass().getClassLoader();
 	InputStream is;
 	Properties p = new Properties();
@@ -29,6 +30,12 @@ public class DBConnection {
 		final String URL = p.getProperty("URL");
 		final String USERNAME = p.getProperty("USERNAME");
 		final String PASSWORD = p.getProperty("PASSWORD");
-		return DriverManager.getConnection(URL, USERNAME, PASSWORD);
+		
+		try {
+			Class.forName("org.postgresql.Driver");
+		} catch(ClassNotFoundException e) {
+			log.callFatalLogger(e);
+		}
+	return DriverManager.getConnection(URL, USERNAME, PASSWORD);
 	}
 }

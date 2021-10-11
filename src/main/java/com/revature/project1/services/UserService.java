@@ -25,11 +25,11 @@ public class UserService {
 				return user;
 			} else {
 				log.callErrorLogger("Wrong Password");
-				return user;
+				return null;
 			}
 		} catch (Exception e){
 			log.callErrorLogger(e);
-			return user;
+			return null;
 		}
 	}
 	

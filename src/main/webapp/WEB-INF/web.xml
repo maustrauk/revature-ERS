@@ -1,12 +1,68 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://Java.sun.com/xml/ns/Javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5">
-  <display-name>HelloHTML</display-name>
+  <display-name>Project1</display-name>
+  
   <welcome-file-list>
     <welcome-file>index.html</welcome-file>
-    <welcome-file>index.htm</welcome-file>
-    <welcome-file>index.jsp</welcome-file>
-    <welcome-file>default.html</welcome-file>
-    <welcome-file>default.htm</welcome-file>
-    <welcome-file>default.jsp</welcome-file>
   </welcome-file-list>
+  
+  <!-- Direct Servlet Config -->
+  <servlet>
+  	<servlet-name>DirectServObj</servlet-name>
+  	<servlet-class>com.revature.project1.servlets.DirectServlet</servlet-class>
+  </servlet>
+  
+  <!-- Mapping Servlet to URI pattern -->
+  <servlet-mapping>
+  	<servlet-name>DirectServObj</servlet-name>
+  	<url-pattern>/dirserv</url-pattern>
+  </servlet-mapping>
+  
+  <!-- Indirect Servlet Config -->
+    <servlet>
+  		<servlet-name>IndirectServObj</servlet-name>
+  		<servlet-class>com.revature.project1.servlets.IndirectServlet</servlet-class>
+  	</servlet>
+  	
+  <!-- Mapping Servlet to URI pattern -->
+	  <servlet-mapping>
+	  	<servlet-name>IndirectServObj</servlet-name>
+	  	<url-pattern>/indirserv</url-pattern>
+	  </servlet-mapping>
+
+  <!-- Session Servlet Config -->
+    <servlet>
+  		<servlet-name>SessionServObj</servlet-name>
+  		<servlet-class>com.revature.project1.servlets.SessionServlet</servlet-class>
+  	</servlet>
+  	
+  <!-- Mapping Servlet to URI pattern -->
+	  <servlet-mapping>
+	  	<servlet-name>SessionServObj</servlet-name>
+	  	<url-pattern>/sessserv</url-pattern>
+	  </servlet-mapping>
+	  
+  <!-- View Servlet Config -->
+    <servlet>
+  		<servlet-name>ViewServObj</servlet-name>
+  		<servlet-class>com.revature.project1.servlets.ViewServlet</servlet-class>
+  	</servlet>
+  	
+  <!-- Mapping Servlet to URI pattern -->
+	  <servlet-mapping>
+	  	<servlet-name>ViewServObj</servlet-name>
+	  	<url-pattern>*.change</url-pattern>
+	  </servlet-mapping>	
+	    
+ <!-- InsertUser Servlet Config -->
+    <servlet>
+  		<servlet-name>InsertUserServObj</servlet-name>
+  		<servlet-class>com.revature.project1.servlets.InsertUserServlet</servlet-class>
+  	</servlet>
+  	
+  <!-- Mapping Servlet to URI pattern -->
+	  <servlet-mapping>
+	  	<servlet-name>InsertUserServObj</servlet-name>
+	  	<url-pattern>*.signUp</url-pattern>
+	  </servlet-mapping>	
 </web-app>
