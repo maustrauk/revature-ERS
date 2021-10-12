@@ -1,11 +1,13 @@
 package com.revature.project1;
 
 import java.io.IOException;
+import java.util.List;
 import java.util.stream.Collectors;
 
 import javax.servlet.http.HttpServletRequest;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.revature.project1.models.Reimbursement;
 import com.revature.project1.models.User;
 
 public class JacksonHelper {
@@ -31,6 +33,15 @@ public class JacksonHelper {
 	}
 	
 	public String toJsonString(User result) {
+		try {
+			return mapper.writeValueAsString(result);
+		} catch (IOException e) {
+			log.callErrorLogger(e);
+			return null;
+		}
+	}
+		
+	public String toJsonString(List<Reimbursement> result) {
 		try {
 			return mapper.writeValueAsString(result);
 		} catch (IOException e) {

@@ -16,6 +16,9 @@ public class CheckDispatcher {
 		case "/project1/user.login.check":
 			System.out.println("in user.login.check dispatcher");
 			return uCont.login(req);
+		case "/project1/user.signup.check":
+			System.out.println("in user.signup.check dispatcher");
+			return uCont.signup(req);
 		default:
 			System.out.println("in default");
 			return null;

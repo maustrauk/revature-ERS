@@ -8,30 +8,23 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.revature.project1.models.User;
+import com.revature.project1.JacksonHelper;
 
-public class UserServlet extends HttpServlet{
-	private UserDispatcher uDisp = new UserDispatcher();
+public class ListServlet extends HttpServlet{
+	private final JacksonHelper jackson = new JacksonHelper();
+	private ListDispatcher lDisp = new ListDispatcher();
 
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		
-		User result = uDisp.process(req);
-		
-		 ObjectMapper Obj = new ObjectMapper();
-		
-		String objectJsonString = Obj.writeValueAsString(result);
-		
 		PrintWriter out = resp.getWriter();
 		resp.setContentType("application/json");
 		resp.setCharacterEncoding("UTF-8");
-		if (result != null) {
-			out.print(objectJsonString);
+		String json = jackson.toJsonString(lDisp.process(req));
+		if (json != null) {
+			out.print(json);
 		} else {
 			out.print("Wrong credentials");
 		}
-		
 		out.flush(); 
 	}
 

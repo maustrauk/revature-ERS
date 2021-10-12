@@ -51,5 +51,15 @@
 	  	<servlet-name>CheckServObj</servlet-name>
 	  	<url-pattern>*.check</url-pattern>
 	  </servlet-mapping>	
-	    
+   <!-- ListServlet Config -->
+    <servlet>
+  		<servlet-name>ListServObj</servlet-name>
+  		<servlet-class>com.revature.project1.servlets.ListServlet</servlet-class>
+  	</servlet>
+  	
+  <!-- Mapping User to URI pattern -->
+	  <servlet-mapping>
+	  	<servlet-name>ListServObj</servlet-name>
+	  	<url-pattern>*.list</url-pattern>
+	  </servlet-mapping>	    
 </web-app>
