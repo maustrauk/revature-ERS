@@ -18,7 +18,7 @@ public class InsertUserServlet extends HttpServlet{
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		//super.doPost(req, resp);
-		req.getRequestDispatcher(iUserDisp.process(req)).forward(req, resp);
+		//req.getRequestDispatcher(iUserDisp.process(req)).forward(req, resp);
 	}
 	
 

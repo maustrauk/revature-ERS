@@ -1,0 +1,32 @@
+package com.revature.project1;
+
+import java.io.IOException;
+import java.util.stream.Collectors;
+
+import javax.servlet.http.HttpServletRequest;
+
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.revature.project1.models.User;
+
+public class JacksonHelper {
+	private final ObjectMapper mapper = new ObjectMapper();
+	private final LogHelper log = new LogHelper();
+
+	public JacksonHelper() {
+	}
+	
+	public User reqJSONtoUser (HttpServletRequest req) {
+		User parsedUser = new User();
+		
+		try {
+			String jsonStr = req.getReader().lines().collect(Collectors.joining());
+			System.out.println(jsonStr);
+			parsedUser = mapper.readValue(jsonStr, User.class);
+		} catch (IOException e) {
+			log.callErrorLogger(e);
+			parsedUser = null;
+		}
+		
+		return parsedUser;
+	}
+}
