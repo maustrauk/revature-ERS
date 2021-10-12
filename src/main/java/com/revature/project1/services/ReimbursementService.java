@@ -93,4 +93,11 @@ public class ReimbursementService {
 		}
 		reimbDao.delete(reimbursement);
 	}
+	
+	public List<Reimbursement> getReimbListByUserId(int userId) {
+		if(uDao.getById(userId) == null) {
+			throw new NullPointerException("There isn't a user with id: " + userId);
+		}
+		return reimbDao.getReimbListByAuthorId(userId);
+	}
 }

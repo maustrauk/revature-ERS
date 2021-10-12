@@ -29,4 +29,14 @@ public class JacksonHelper {
 		
 		return parsedUser;
 	}
+	
+	public String toJsonString(User result) {
+		try {
+			return mapper.writeValueAsString(result);
+		} catch (IOException e) {
+			log.callErrorLogger(e);
+			return null;
+		}
+		
+	}
 }

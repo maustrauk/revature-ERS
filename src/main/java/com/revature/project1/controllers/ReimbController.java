@@ -1,14 +1,19 @@
 package com.revature.project1.controllers;
 
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 
+import com.revature.project1.JacksonHelper;
 import com.revature.project1.LogHelper;
 import com.revature.project1.ServiceLoader;
 import com.revature.project1.models.Reimbursement;
+import com.revature.project1.models.User;
 
 public class ReimbController {
 	private final ServiceLoader sLoader = new ServiceLoader();
 	private final LogHelper log = new LogHelper();
+	private final JacksonHelper jackson = new JacksonHelper();
 
 	public ReimbController() {
 	}
@@ -45,6 +50,21 @@ public class ReimbController {
 			return "html/home.html";
 		}
 		
+	}
+	
+	public List<Reimbursement> getReimbByUserId(HttpServletRequest req) {
+		System.out.println("In reimb controller getReimbByUserId");
+		if(!req.getMethod().equals("POST")) {
+			return null;
+		}
+		
+		User reqUser = jackson.reqJSONtoUser(req);
+		
+		if (reqUser.getUserRoleId() == 1) {
+			return sLoader.getReimbursementService().getReimbListByUserId(reqUser.getUserId());
+		} else {
+			return null;
+		}
 	}
 		
 		
