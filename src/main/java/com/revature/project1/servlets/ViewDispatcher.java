@@ -10,14 +10,14 @@ public class ViewDispatcher {
 	public ViewDispatcher() {
 	}
 
-	public String process(HttpServletRequest req) {
-		switch(req.getRequestURI()) {
-		case "/project1/login.change":
-			System.out.println("in login.change dispatcher");
-			return uCont.login(req);
-		default:
-			System.out.println("in default");
-			return "html/sign_in_page.html";
-		}
-	}
+//	public String process(HttpServletRequest req) {
+//		switch(req.getRequestURI()) {
+//		case "/project1/login.change":
+//			System.out.println("in login.change dispatcher");
+//			return uCont.login(req);
+//		default:
+//			System.out.println("in default");
+//			return "html/sign_in_page.html";
+//		}
+//	}
 }

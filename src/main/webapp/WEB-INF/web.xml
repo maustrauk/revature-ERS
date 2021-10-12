@@ -7,7 +7,6 @@
   </welcome-file-list>
   
    <!-- Access-Control-Allow-Origin' Problem -->
-  
 	<filter>
 	  <filter-name>CorsFilter</filter-name>
 	  <filter-class>org.apache.catalina.filters.CorsFilter</filter-class>
@@ -41,74 +40,16 @@
 	  <url-pattern>/*</url-pattern>
 	</filter-mapping>
   
-  <!-- Direct Servlet Config -->
-  <servlet>
-  	<servlet-name>DirectServObj</servlet-name>
-  	<servlet-class>com.revature.project1.servlets.DirectServlet</servlet-class>
-  </servlet>
-  
-  <!-- Mapping Servlet to URI pattern -->
-  <servlet-mapping>
-  	<servlet-name>DirectServObj</servlet-name>
-  	<url-pattern>/dirserv</url-pattern>
-  </servlet-mapping>
-  
-  <!-- Indirect Servlet Config -->
+   <!-- UserServlet Config -->
     <servlet>
-  		<servlet-name>IndirectServObj</servlet-name>
-  		<servlet-class>com.revature.project1.servlets.IndirectServlet</servlet-class>
+  		<servlet-name>UserServObj</servlet-name>
+  		<servlet-class>com.revature.project1.servlets.UserServlet</servlet-class>
   	</servlet>
   	
-  <!-- Mapping Servlet to URI pattern -->
+  <!-- Mapping User to URI pattern -->
 	  <servlet-mapping>
-	  	<servlet-name>IndirectServObj</servlet-name>
-	  	<url-pattern>/indirserv</url-pattern>
-	  </servlet-mapping>
-
-  <!-- Session Servlet Config -->
-    <servlet>
-  		<servlet-name>SessionServObj</servlet-name>
-  		<servlet-class>com.revature.project1.servlets.SessionServlet</servlet-class>
-  	</servlet>
-  	
-  <!-- Mapping Servlet to URI pattern -->
-	  <servlet-mapping>
-	  	<servlet-name>SessionServObj</servlet-name>
-	  	<url-pattern>/sessserv</url-pattern>
-	  </servlet-mapping>
-	  
-  <!-- View Servlet Config -->
-    <servlet>
-  		<servlet-name>ViewServObj</servlet-name>
-  		<servlet-class>com.revature.project1.servlets.ViewServlet</servlet-class>
-  	</servlet>
-  	
-  <!-- Mapping Servlet to URI pattern -->
-	  <servlet-mapping>
-	  	<servlet-name>ViewServObj</servlet-name>
-	  	<url-pattern>*.change</url-pattern>
+	  	<servlet-name>UserServObj</servlet-name>
+	  	<url-pattern>*.user</url-pattern>
 	  </servlet-mapping>	
 	    
- <!-- InsertUser Servlet Config -->
-    <servlet>
-  		<servlet-name>InsertUserServObj</servlet-name>
-  		<servlet-class>com.revature.project1.servlets.InsertUserServlet</servlet-class>
-  	</servlet>
-  	
-  <!-- Mapping Servlet to URI pattern -->
-	  <servlet-mapping>
-	  	<servlet-name>InsertUserServObj</servlet-name>
-	  	<url-pattern>*.signUp</url-pattern>
-	  </servlet-mapping>	
-  <!-- AddReimb Servlet Config -->
-    <servlet>
-  		<servlet-name>AddReimbServObj</servlet-name>
-  		<servlet-class>com.revature.project1.servlets.AddReimbServlet</servlet-class>
-  	</servlet>
-  	
-  <!-- Mapping Servlet to URI pattern -->
-	  <servlet-mapping>
-	  	<servlet-name>AddReimbServObj</servlet-name>
-	  	<url-pattern>*.reimb</url-pattern>
-	  </servlet-mapping>	
 </web-app>
