@@ -62,6 +62,47 @@ public class ReimbController {
 			return null;
 		}
 	}
+	
+	public List<Reimbursement> getReimbByManagerId(HttpServletRequest req) {
+		System.out.println("In reimb controller getReimbByManagerId");
+		if(!req.getMethod().equals("POST")) {
+			return null;
+		}
+		
+		User reqUser = jackson.reqJSONtoUser(req);
+		
+		if (reqUser.getUserRoleId() == 2) {
+			return sLoader.getReimbursementService().getReimbListByManagerId(reqUser.getUserId());
+		} else {
+			return null;
+		}
+	}
+	
+	public List<Reimbursement> updateReimb(HttpServletRequest req) {
+		System.out.println("In reimb controller updateReimb");
+		if(!req.getMethod().equals("POST")) {
+			return null;
+		}
+		
+		Reimbursement reqReimb = jackson.reqJSONtoReimbursement(req);
+		User reqUser = sLoader.getUserService().getUserById(reqReimb.getReimbResolver());
+		Reimbursement uReimb = new Reimbursement();
+		
+		System.out.println("reqReimb: " +reqReimb);
+		
+		if (reqUser.getUserRoleId() == 2) {
+			uReimb = sLoader.getReimbursementService().updateReimbursement(reqReimb);
+			if (uReimb != null) {
+				System.out.println("uReimb not null");
+				return sLoader.getReimbursementService().getReimbListByManagerId(reqUser.getUserId());
+			} else {
+				System.out.println("Error in updateReimb");
+				return null;
+			}
+		} else {
+			return null;
+		}
+	}
 		
 		
 }

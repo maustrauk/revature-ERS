@@ -77,17 +77,15 @@ public class ReimbursementDaoImpl implements ReimbursementDao{
 			statement.registerOutParameter(1, Types.INTEGER);
 			statement.setInt(2, entity.getReimbId());
 			statement.setDouble(3, entity.getReimbAmount());
-			statement.setString(6, entity.getReimbDescription());
-			statement.setBytes(7, entity.getReimbReceipt());
-			statement.setInt(8, entity.getReimbAuthor());
-			statement.setInt(9, entity.getReimbResolver());
-			statement.setInt(10, entity.getReimbStatusId());
-			statement.setInt(11, entity.getReimbTypeId());
-			
+			statement.setString(4, entity.getReimbDescription());
+			statement.setBytes(5, entity.getReimbReceipt());
+			statement.setInt(6, entity.getReimbAuthor());
+			statement.setInt(7, entity.getReimbResolver());
+			statement.setInt(8, entity.getReimbStatusId());
+			statement.setInt(9, entity.getReimbTypeId());
 			
 			statement.execute();
 			
-			System.out.println(statement.getString(1));
 			newReimbursement = getById(statement.getInt(1));
 			
 		} catch (SQLException e) {
@@ -177,6 +175,27 @@ public class ReimbursementDaoImpl implements ReimbursementDao{
 		
 		try(Connection con = dbCon.getDBConnection()) {
 			String sql = "select * from ers_reimbursement where reimb_author = ?";
+			PreparedStatement prepare = con.prepareStatement(sql);
+			prepare.setInt(1, userId);
+			
+			ResultSet result = prepare.executeQuery();
+			
+			while(result.next()) {
+				reimbList.add(new Reimbursement(result.getInt(1), result.getDouble(2), result.getString(3), result.getString(4), result.getString(5), result.getBytes(6), result.getInt(7), result.getInt(8), result.getInt(9), result.getInt(10)));
+			}
+		} catch (SQLException e) {
+			log.callFatalLogger(e);
+			return null;
+		}
+		return reimbList;
+	}
+
+	@Override
+	public List<Reimbursement> getReimbListByResolverId(int userId) {
+		List<Reimbursement> reimbList = new ArrayList<Reimbursement>();
+		
+		try(Connection con = dbCon.getDBConnection()) {
+			String sql = "select * from ers_reimbursement where reimb_resolver = ?";
 			PreparedStatement prepare = con.prepareStatement(sql);
 			prepare.setInt(1, userId);
 			

@@ -42,7 +42,7 @@ public class JacksonHelper {
 			tReimb = mapper.readValue(jsonStr, ReimbTemp.class);
 		} catch (IOException e) {
 			log.callErrorLogger(e);
-			tReimb = null;
+			return null;
 		}
 		
 		return tReimb;
@@ -65,5 +65,20 @@ public class JacksonHelper {
 			return null;
 		}
 		
+	}
+	
+	public Reimbursement reqJSONtoReimbursement(HttpServletRequest req) {
+		Reimbursement reimb = new Reimbursement();
+		
+		try {
+			String jsonStr = req.getReader().lines().collect(Collectors.joining());
+			System.out.println(jsonStr);
+			reimb = mapper.readValue(jsonStr, Reimbursement.class);
+		} catch(IOException e) {
+			log.callErrorLogger(e);
+			return null;
+		}
+		
+		return reimb;
 	}
 }
