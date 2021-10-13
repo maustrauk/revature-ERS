@@ -25,7 +25,6 @@ public class CheckServlet extends HttpServlet{
 		} else {
 			out.print("Wrong credentials");
 		}
-		
 		out.flush(); 
 	}
 	

@@ -18,10 +18,10 @@ public class ReimbController {
 	public ReimbController() {
 	}
 	
-	public String addReimb(HttpServletRequest req) {
+	public List<Reimbursement> addReimb(HttpServletRequest req) {
 		System.out.println("In reimbursement controller add");
 		if(!req.getMethod().equals("POST")) {
-			return "html/sign_in_page.html";
+			return null;
 		}
 		
 		byte[] reimbReceipt;
