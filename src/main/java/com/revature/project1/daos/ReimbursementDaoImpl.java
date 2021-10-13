@@ -165,4 +165,25 @@ public class ReimbursementDaoImpl implements ReimbursementDao{
 		
 		return entity;
 	}
+
+	@Override
+	public List<Reimbursement> getReimbListByAuthorId(int userId) {
+		List<Reimbursement> reimbList = new ArrayList<Reimbursement>();
+		
+		try(Connection con = dbCon.getDBConnection()) {
+			String sql = "select * from ers_reimbursement where reimb_author = ?";
+			PreparedStatement prepare = con.prepareStatement(sql);
+			prepare.setInt(1, userId);
+			
+			ResultSet result = prepare.executeQuery();
+			
+			while(result.next()) {
+				reimbList.add(new Reimbursement(result.getInt(1), result.getDouble(2), result.getString(3), result.getString(4), result.getString(5), result.getBytes(6), result.getInt(7), result.getInt(8), result.getInt(9), result.getInt(10)));
+			}
+		} catch (SQLException e) {
+			log.callFatalLogger(e);
+		}
+		return reimbList;
+	}
+	
 }

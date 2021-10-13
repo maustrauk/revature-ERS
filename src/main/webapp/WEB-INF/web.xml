@@ -6,63 +6,60 @@
     <welcome-file>index.html</welcome-file>
   </welcome-file-list>
   
-  <!-- Direct Servlet Config -->
-  <servlet>
-  	<servlet-name>DirectServObj</servlet-name>
-  	<servlet-class>com.revature.project1.servlets.DirectServlet</servlet-class>
-  </servlet>
+   <!-- Access-Control-Allow-Origin' Problem -->
+	<filter>
+	  <filter-name>CorsFilter</filter-name>
+	  <filter-class>org.apache.catalina.filters.CorsFilter</filter-class>
+	  <init-param>
+	    <param-name>cors.allowed.origins</param-name>
+	    <param-value>http://localhost:3000</param-value>
+	  </init-param>
+	  <init-param>
+	    <param-name>cors.allowed.methods</param-name>
+	    <param-value>GET,POST,HEAD,OPTIONS,PUT</param-value>
+	  </init-param>
+	  <init-param>
+	    <param-name>cors.allowed.headers</param-name>
+	    <param-value>Content-Type,X-Requested-With,accept,Origin,Access-Control-Request-Method,Access-Control-Request-Headers</param-value>
+	  </init-param>
+	  <init-param>
+	    <param-name>cors.exposed.headers</param-name>
+	    <param-value>Access-Control-Allow-Origin,Access-Control-Allow-Credentials</param-value>
+	  </init-param>
+	  <init-param>
+	    <param-name>cors.support.credentials</param-name>
+	    <param-value>true</param-value>
+	  </init-param>
+	  <init-param>
+	    <param-name>cors.preflight.maxage</param-name>
+	    <param-value>10</param-value>
+	  </init-param>
+	</filter>
+	<filter-mapping>
+	  <filter-name>CorsFilter</filter-name>
+	  <url-pattern>/*</url-pattern>
+	</filter-mapping>
   
-  <!-- Mapping Servlet to URI pattern -->
-  <servlet-mapping>
-  	<servlet-name>DirectServObj</servlet-name>
-  	<url-pattern>/dirserv</url-pattern>
-  </servlet-mapping>
-  
-  <!-- Indirect Servlet Config -->
+   <!-- CheckServlet Config -->
     <servlet>
-  		<servlet-name>IndirectServObj</servlet-name>
-  		<servlet-class>com.revature.project1.servlets.IndirectServlet</servlet-class>
+  		<servlet-name>CheckServObj</servlet-name>
+  		<servlet-class>com.revature.project1.servlets.CheckServlet</servlet-class>
   	</servlet>
   	
-  <!-- Mapping Servlet to URI pattern -->
+  <!-- Mapping User to URI pattern -->
 	  <servlet-mapping>
-	  	<servlet-name>IndirectServObj</servlet-name>
-	  	<url-pattern>/indirserv</url-pattern>
-	  </servlet-mapping>
-
-  <!-- Session Servlet Config -->
-    <servlet>
-  		<servlet-name>SessionServObj</servlet-name>
-  		<servlet-class>com.revature.project1.servlets.SessionServlet</servlet-class>
-  	</servlet>
-  	
-  <!-- Mapping Servlet to URI pattern -->
-	  <servlet-mapping>
-	  	<servlet-name>SessionServObj</servlet-name>
-	  	<url-pattern>/sessserv</url-pattern>
-	  </servlet-mapping>
-	  
-  <!-- View Servlet Config -->
-    <servlet>
-  		<servlet-name>ViewServObj</servlet-name>
-  		<servlet-class>com.revature.project1.servlets.ViewServlet</servlet-class>
-  	</servlet>
-  	
-  <!-- Mapping Servlet to URI pattern -->
-	  <servlet-mapping>
-	  	<servlet-name>ViewServObj</servlet-name>
-	  	<url-pattern>*.change</url-pattern>
+	  	<servlet-name>CheckServObj</servlet-name>
+	  	<url-pattern>*.check</url-pattern>
 	  </servlet-mapping>	
-	    
- <!-- InsertUser Servlet Config -->
+   <!-- ListServlet Config -->
     <servlet>
-  		<servlet-name>InsertUserServObj</servlet-name>
-  		<servlet-class>com.revature.project1.servlets.InsertUserServlet</servlet-class>
+  		<servlet-name>ListServObj</servlet-name>
+  		<servlet-class>com.revature.project1.servlets.ListServlet</servlet-class>
   	</servlet>
   	
-  <!-- Mapping Servlet to URI pattern -->
+  <!-- Mapping User to URI pattern -->
 	  <servlet-mapping>
-	  	<servlet-name>InsertUserServObj</servlet-name>
-	  	<url-pattern>*.signUp</url-pattern>
-	  </servlet-mapping>	
+	  	<servlet-name>ListServObj</servlet-name>
+	  	<url-pattern>*.list</url-pattern>
+	  </servlet-mapping>	    
 </web-app>
