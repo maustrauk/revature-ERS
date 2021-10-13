@@ -20,11 +20,8 @@ public class ListServlet extends HttpServlet{
 		resp.setContentType("application/json");
 		resp.setCharacterEncoding("UTF-8");
 		String json = jackson.toJsonString(lDisp.process(req));
-		if (json != null) {
-			out.print(json);
-		} else {
-			out.print("Wrong credentials");
-		}
+		System.out.println("JSON: " + json);
+		out.print(json);
 		out.flush(); 
 	}
 
