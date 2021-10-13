@@ -34,6 +34,7 @@ public class ReimbTypeDaoImpl implements ReimbTypeDao{
 			}
 		} catch (SQLException e) {
 			log.callFatalLogger(e);
+			return null;
 			}
 		return reimbTypeList;
 	}
@@ -53,6 +54,7 @@ public class ReimbTypeDaoImpl implements ReimbTypeDao{
 			}
 		} catch (SQLException e) {
 			log.callFatalLogger(e);
+			return null;
 		}
 		return reimbType;
 	}
@@ -72,6 +74,7 @@ public class ReimbTypeDaoImpl implements ReimbTypeDao{
 			}
 		} catch (SQLException e) {
 			log.callFatalLogger(e);
+			return null;
 		}
 		return reimbType;
 	}

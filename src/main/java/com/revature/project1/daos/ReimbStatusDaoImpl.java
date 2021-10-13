@@ -34,6 +34,7 @@ public class ReimbStatusDaoImpl implements ReimbStatusDao{
 			}
 		} catch (SQLException e) {
 			log.callFatalLogger(e);
+			return null;
 			}
 		return reimbStatusList;
 	}
@@ -53,6 +54,7 @@ public class ReimbStatusDaoImpl implements ReimbStatusDao{
 			}
 		} catch (SQLException e) {
 			log.callFatalLogger(e);
+			return null;
 		}
 		return reimbStatus;
 	}
@@ -72,6 +74,7 @@ public class ReimbStatusDaoImpl implements ReimbStatusDao{
 			}
 		} catch (SQLException e) {
 			log.callFatalLogger(e);
+			return null;
 		}
 		return reimbStatus;
 	}

@@ -36,6 +36,7 @@ public class RoleDaoImpl implements RoleDao{
 			
 		} catch (SQLException e) {
 			log.callFatalLogger(e);
+			return null;
 		}
 		
 		return rolesList;
@@ -56,6 +57,7 @@ public class RoleDaoImpl implements RoleDao{
 			}
 		} catch (SQLException e) {
 			log.callFatalLogger(e);
+			return null;
 		}
 		return role;
 	}
@@ -75,6 +77,7 @@ public class RoleDaoImpl implements RoleDao{
 			}
 		} catch (SQLException e) {
 			log.callFatalLogger(e);
+			return null;
 		}
 		return role;
 	}

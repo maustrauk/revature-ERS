@@ -36,6 +36,7 @@ public class UserDaoImpl implements UserDao{
 			}
 		} catch (SQLException e) {
 			log.callFatalLogger(e);
+			return null;
 			}
 		return usersList;
 	}
@@ -55,6 +56,7 @@ public class UserDaoImpl implements UserDao{
 			}
 		} catch (SQLException e) {
 			log.callFatalLogger(e);
+			return null;
 		}
 		return user;
 	}
@@ -74,6 +76,7 @@ public class UserDaoImpl implements UserDao{
 			}
 		} catch (SQLException e) {
 			log.callFatalLogger(e);
+			return null;
 		}
 		return user;
 	}
@@ -100,6 +103,7 @@ public class UserDaoImpl implements UserDao{
 			
 		} catch (SQLException e) {
 			log.callFatalLogger(e);
+			return null;
 		}
 		
 		
@@ -124,6 +128,7 @@ public class UserDaoImpl implements UserDao{
 			
 		} catch (SQLException e) {
 			log.callFatalLogger(e);
+			return null;
 		}
 		
 		return entity;

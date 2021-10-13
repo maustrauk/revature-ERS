@@ -36,6 +36,7 @@ public class ReimbursementDaoImpl implements ReimbursementDao{
 			}
 		} catch (SQLException e) {
 			log.callFatalLogger(e);
+			return null;
 			}
 		return reimbursementsList;
 	}
@@ -61,6 +62,7 @@ public class ReimbursementDaoImpl implements ReimbursementDao{
 			}
 		} catch (SQLException e) {
 			log.callFatalLogger(e);
+			return null;
 		}
 		return reimbursement;
 	}
@@ -90,6 +92,7 @@ public class ReimbursementDaoImpl implements ReimbursementDao{
 			
 		} catch (SQLException e) {
 			log.callFatalLogger(e);
+			return null;
 		}
 		
 		
@@ -115,6 +118,7 @@ public class ReimbursementDaoImpl implements ReimbursementDao{
 			
 		} catch (SQLException e) {
 			log.callFatalLogger(e);
+			return null;
 		}
 		
 		return entity;
@@ -161,6 +165,7 @@ public class ReimbursementDaoImpl implements ReimbursementDao{
 			
 		} catch (SQLException e) {
 			log.callFatalLogger(e);
+			return null;
 		}
 		
 		return entity;
@@ -182,6 +187,7 @@ public class ReimbursementDaoImpl implements ReimbursementDao{
 			}
 		} catch (SQLException e) {
 			log.callFatalLogger(e);
+			return null;
 		}
 		return reimbList;
 	}
