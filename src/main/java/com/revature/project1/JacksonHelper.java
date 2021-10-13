@@ -66,7 +66,7 @@ public class JacksonHelper {
 		}
 	}
 		
-	public String toJsonString(List<Reimbursement> result) {
+	public String toJsonString(List result) {
 		try {
 			return mapper.writeValueAsString(result);
 		} catch (IOException e) {
@@ -76,6 +76,7 @@ public class JacksonHelper {
 		
 	}
 	
+
 	public Reimbursement reqJSONtoReimbursement(HttpServletRequest req) {
 		Reimbursement reimb = new Reimbursement();
 		

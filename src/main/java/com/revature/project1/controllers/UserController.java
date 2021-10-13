@@ -1,5 +1,7 @@
 package com.revature.project1.controllers;
 
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 
 
@@ -52,4 +54,22 @@ public class UserController {
 			return returnedUser;
 		}
 	}
+	
+	public List<User> getEmplList(HttpServletRequest req) {
+		System.out.println("In user controller getEmplList");
+		if(!req.getMethod().equals("POST")) {
+			return null;
+		}
+		
+		User reqUser = jackson.reqJSONtoUser(req);
+		
+		if(reqUser.getUserRoleId() == 2) {
+			return sLoader.getUserService().getAllByRoleId(1);
+		} else {
+			return null;
+		}
+		
+	}
+	
+	
 }

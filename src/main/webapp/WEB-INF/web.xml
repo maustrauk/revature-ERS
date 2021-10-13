@@ -62,5 +62,17 @@
 	  <servlet-mapping>
 	  	<servlet-name>ReimbListServObj</servlet-name>
 	  	<url-pattern>*.reimb-list</url-pattern>
-	  </servlet-mapping>	  	    
+	  </servlet-mapping>	
+	  
+   <!-- UserListServlet Config -->
+    <servlet>
+  		<servlet-name>UserListServObj</servlet-name>
+  		<servlet-class>com.revature.project1.servlets.UserListServlet</servlet-class>
+  	</servlet>
+  	
+  <!-- Mapping User to URI pattern -->
+	  <servlet-mapping>
+	  	<servlet-name>UserListServObj</servlet-name>
+	  	<url-pattern>*.user-list</url-pattern>
+	  </servlet-mapping>  	    
 </web-app>

@@ -156,6 +156,25 @@ public class UserDaoImpl implements UserDao{
 		// TODO Auto-generated method stub
 		
 	}
+
+	@Override
+	public List<User> getUserListByUserRoleId(int roleId) {
+		List<User> usersList = new ArrayList<User>();
+			try(Connection con = dbCon.getDBConnection()) {
+				String sql = "select * from ers_users where user_role_id = ?";
+				PreparedStatement statement = con.prepareStatement(sql);
+				statement.setInt(1, roleId);
+				ResultSet result = statement.executeQuery();
+				while(result.next()) 
+				{
+					usersList.add(new User(result.getInt(1), result.getString(2), result.getString(3), result.getString(4), result.getString(5), result.getString(6), result.getInt(7)));
+				}
+			} catch (SQLException e) {
+				log.callFatalLogger(e);
+				return null;
+				}
+		return usersList;
+	}
 	
 	
 }

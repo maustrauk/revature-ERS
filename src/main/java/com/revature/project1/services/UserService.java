@@ -33,6 +33,14 @@ public class UserService {
 		}
 	}
 	
+	public List<User> getAllByRoleId(int roleId) {
+		List<User> list = uDao.getUserListByUserRoleId(roleId);
+		for (User user: list) {
+			user.setUserPassword(null);
+		}
+		return list; 
+	}
+	
 	public List<User> getAllUsers() {
 		return uDao.getAll();
 	}
