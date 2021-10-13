@@ -5,14 +5,13 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 
 import com.revature.project1.JacksonHelper;
-import com.revature.project1.LogHelper;
 import com.revature.project1.ServiceLoader;
+import com.revature.project1.models.ReimbTemp;
 import com.revature.project1.models.Reimbursement;
 import com.revature.project1.models.User;
 
 public class ReimbController {
 	private final ServiceLoader sLoader = new ServiceLoader();
-	private final LogHelper log = new LogHelper();
 	private final JacksonHelper jackson = new JacksonHelper();
 
 	public ReimbController() {
@@ -24,30 +23,27 @@ public class ReimbController {
 			return null;
 		}
 		
-		byte[] reimbReceipt;
+		ReimbTemp rTemp = jackson.reqJSONtoReimbTemp(req);
 		
-		try {
-			reimbReceipt = sLoader.getReimbursementService().getFileStream(req.getParameter("receipt"));
-		} catch (Exception e) {
-			log.callErrorLogger(e);
-			reimbReceipt = new byte[0];
-		}	
+		String managerName = rTemp.getReimbResolver();
+		String filePath = rTemp.getReimbReceipt();
+		
+		byte[] reimbReceipt = sLoader.getReimbursementService().getFileStream(filePath);
 		
 		Reimbursement newReimb = new Reimbursement();
-		newReimb.setReimbAmount(Double.parseDouble(req.getParameter("amount")));
-		newReimb.setReimbDescription(req.getParameter("description"));
-		newReimb.setReimbAuthor(1);
+		newReimb.setReimbAmount(rTemp.getReimbAmount());
+		newReimb.setReimbAuthor(rTemp.getReimbAuthor());
+		newReimb.setReimbDescription(rTemp.getReimbDescription());
 		newReimb.setReimbReceipt(reimbReceipt);
 		newReimb.setReimbStatusId(3);
-		newReimb.setReimbTypeId(Integer.parseInt(req.getParameter("reimbType")));
+		newReimb.setReimbTypeId(rTemp.getReimbTypeId());
 		
+		Reimbursement reimb = sLoader.getReimbursementService().addReimbForCheck(newReimb, managerName);
 		
-		Reimbursement reimb = sLoader.getReimbursementService().addReimbForCheck(newReimb, req.getParameter("username"));
-		if(reimb == null) {
-			return "wrongcreds.change";
+		if (reimb == null) {
+			return null;
 		} else {
-			req.getSession().setAttribute("currentReimb", reimb);
-			return "html/home.html";
+			return sLoader.getReimbursementService().getReimbListByUserId(reimb.getReimbAuthor());
 		}
 		
 	}

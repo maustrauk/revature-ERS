@@ -7,6 +7,7 @@ import java.util.stream.Collectors;
 import javax.servlet.http.HttpServletRequest;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.revature.project1.models.ReimbTemp;
 import com.revature.project1.models.Reimbursement;
 import com.revature.project1.models.User;
 
@@ -30,6 +31,21 @@ public class JacksonHelper {
 		}
 		
 		return parsedUser;
+	}
+	
+	public ReimbTemp reqJSONtoReimbTemp (HttpServletRequest req) {
+		ReimbTemp tReimb = new ReimbTemp();
+		
+		try {
+			String jsonStr = req.getReader().lines().collect(Collectors.joining());
+			System.out.println(jsonStr);
+			tReimb = mapper.readValue(jsonStr, ReimbTemp.class);
+		} catch (IOException e) {
+			log.callErrorLogger(e);
+			tReimb = null;
+		}
+		
+		return tReimb;
 	}
 	
 	public String toJsonString(User result) {
