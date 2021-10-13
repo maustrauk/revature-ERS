@@ -56,6 +56,15 @@ public class JacksonHelper {
 			return null;
 		}
 	}
+	
+	public String toJsonString(Reimbursement result) {
+		try {
+			return mapper.writeValueAsString(result);
+		} catch (IOException e) {
+			log.callErrorLogger(e);
+			return null;
+		}
+	}
 		
 	public String toJsonString(List<Reimbursement> result) {
 		try {
