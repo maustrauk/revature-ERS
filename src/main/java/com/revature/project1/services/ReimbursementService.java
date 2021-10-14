@@ -2,8 +2,6 @@ package com.revature.project1.services;
 
 import java.io.File;
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.IOException;
 import java.util.List;
 
 import com.revature.project1.LogHelper;
@@ -50,18 +48,24 @@ public class ReimbursementService {
 		}
 	}
 	
-	public byte[] getFileStream (String path) throws IOException, FileNotFoundException {
+	public byte[] getFileStream (String path) {
 		String updPath = "C:\\FileTest\\" + path;
 		File file = new File(updPath);
 		System.out.println("File loaded");
 		byte[] receipt = new byte[(int)file.length()];
-		FileInputStream fis = new FileInputStream(file);
 		System.out.println("Stream started");
-		int bytesRead = fis.read(receipt);
-		while (bytesRead != -1) {
-			bytesRead = fis.read(receipt);
-		}
-		fis.close();
+		
+		try {
+			FileInputStream fis = new FileInputStream(file);
+			int bytesRead = fis.read(receipt);
+			while (bytesRead != -1) {
+				bytesRead = fis.read(receipt);
+				}
+			fis.close();
+			} catch (Exception e) {
+				log.callErrorLogger(e);
+				return null;
+			}
 		return receipt;
 	}
 	
@@ -78,13 +82,19 @@ public class ReimbursementService {
 	}
 	
 	public Reimbursement updateReimbursement(Reimbursement reimbursement) {
-		if (reimbDao.getById(reimbursement.getReimbId()) == null) {
-			throw new NullPointerException("There isn't a reimbursement with id: " + reimbursement.getReimbId());
+		try {
+			if (reimbDao.getById(reimbursement.getReimbId()) == null) {
+				throw new NullPointerException("There isn't a reimbursement with id: " + reimbursement.getReimbId());
+			}
+			
+			Reimbursement updatedReimbursement = reimbDao.update(reimbursement);
+			
+			return updatedReimbursement;
+		} catch(NullPointerException e) {
+			log.callErrorLogger(e);
+			return null;
 		}
 		
-		Reimbursement updatedReimbursement = reimbDao.update(reimbursement);
-		
-		return updatedReimbursement;
 	}
 	
 	public void deleteReimbursement(Reimbursement reimbursement) {
@@ -95,9 +105,28 @@ public class ReimbursementService {
 	}
 	
 	public List<Reimbursement> getReimbListByUserId(int userId) {
-		if(uDao.getById(userId) == null) {
-			throw new NullPointerException("There isn't a user with id: " + userId);
+		try {
+			if(uDao.getById(userId) == null) {
+				throw new NullPointerException("There isn't a user with id: " + userId);
+			}
+			return reimbDao.getReimbListByAuthorId(userId);
+		} catch(NullPointerException e) {
+			log.callErrorLogger(e);
+			return null;
 		}
-		return reimbDao.getReimbListByAuthorId(userId);
 	}
+	
+	public List<Reimbursement> getReimbListByManagerId(int managerId) {
+		try {
+			if(uDao.getById(managerId) == null) {
+				throw new NullPointerException("There isn't a user with id: " + managerId);
+			}
+			return reimbDao.getReimbListByResolverId(managerId);
+		} catch(NullPointerException e) {
+			log.callErrorLogger(e);
+			return null;
+		}
+	}
+	
+	
 }

@@ -1,13 +1,11 @@
 package com.revature.project1.controllers;
 
-import java.io.IOException;
-import java.util.stream.Collectors;
+import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
+
 import com.revature.project1.JacksonHelper;
-import com.revature.project1.LogHelper;
 import com.revature.project1.ServiceLoader;
 import com.revature.project1.models.User;
 
@@ -56,4 +54,22 @@ public class UserController {
 			return returnedUser;
 		}
 	}
+	
+	public List<User> getEmplList(HttpServletRequest req) {
+		System.out.println("In user controller getEmplList");
+		if(!req.getMethod().equals("POST")) {
+			return null;
+		}
+		
+		User reqUser = jackson.reqJSONtoUser(req);
+		
+		if(reqUser.getUserRoleId() == 2) {
+			return sLoader.getUserService().getAllByRoleId(1);
+		} else {
+			return null;
+		}
+		
+	}
+	
+	
 }

@@ -10,23 +10,17 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.revature.project1.JacksonHelper;
 
-public class CheckServlet extends HttpServlet{
-	private CheckDispatcher ckDisp = new CheckDispatcher();
+public class UserServlet extends HttpServlet{
 	private final JacksonHelper jackson = new JacksonHelper();
-
+	private UserDispatcher uDisp = new UserDispatcher();
+	
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		PrintWriter out = resp.getWriter();
 		resp.setContentType("application/json");
 		resp.setCharacterEncoding("UTF-8");
-		String json = jackson.toJsonString(ckDisp.process(req));
-		if (json != null) {
-			out.print(json);
-		} else {
-			out.print("Wrong credentials");
-		}
+		String json = jackson.toJsonString(uDisp.process(req));
+		out.print(json);
 		out.flush(); 
 	}
-	
-	
 }

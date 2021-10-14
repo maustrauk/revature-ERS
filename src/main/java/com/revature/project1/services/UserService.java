@@ -33,6 +33,14 @@ public class UserService {
 		}
 	}
 	
+	public List<User> getAllByRoleId(int roleId) {
+		List<User> list = uDao.getUserListByUserRoleId(roleId);
+		for (User user: list) {
+			user.setUserPassword(null);
+		}
+		return list; 
+	}
+	
 	public List<User> getAllUsers() {
 		return uDao.getAll();
 	}
@@ -56,14 +64,19 @@ public class UserService {
 	public User insertUser(User user) {
 		User checkUser = uDao.getByName(user.getUserName());
 		
-		if(checkUser.getUserName() != null) {
-			throw new NullPointerException("There is user with similar username: " + user.getUserName() + " in DB");
+		try {
+			if(checkUser.getUserName() != null) {
+				throw new NullPointerException("There is user with similar username: " + user.getUserName() + " in DB");
+			}
+			
+			User newUser = uDao.insert(user);
+			return newUser;
+		} catch (NullPointerException e) {
+			log.callErrorLogger(e);
+			return null;
 		}
 		
-		User newUser = uDao.insert(user);
 		
-		
-		return newUser;
 	}
 	
 	public User updateUser(User user) {

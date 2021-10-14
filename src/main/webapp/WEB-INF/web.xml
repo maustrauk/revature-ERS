@@ -40,26 +40,39 @@
 	  <url-pattern>/*</url-pattern>
 	</filter-mapping>
   
-   <!-- CheckServlet Config -->
+   <!-- UserServlet Config -->
     <servlet>
-  		<servlet-name>CheckServObj</servlet-name>
-  		<servlet-class>com.revature.project1.servlets.CheckServlet</servlet-class>
+  		<servlet-name>UserServObj</servlet-name>
+  		<servlet-class>com.revature.project1.servlets.UserServlet</servlet-class>
   	</servlet>
   	
   <!-- Mapping User to URI pattern -->
 	  <servlet-mapping>
-	  	<servlet-name>CheckServObj</servlet-name>
-	  	<url-pattern>*.check</url-pattern>
+	  	<servlet-name>UserServObj</servlet-name>
+	  	<url-pattern>*.user</url-pattern>
+	  </servlet-mapping>
+	  
+   <!-- ReimbListServlet Config -->
+    <servlet>
+  		<servlet-name>ReimbListServObj</servlet-name>
+  		<servlet-class>com.revature.project1.servlets.ReimbListServlet</servlet-class>
+  	</servlet>
+  	
+  <!-- Mapping User to URI pattern -->
+	  <servlet-mapping>
+	  	<servlet-name>ReimbListServObj</servlet-name>
+	  	<url-pattern>*.reimb-list</url-pattern>
 	  </servlet-mapping>	
-   <!-- ListServlet Config -->
+	  
+   <!-- UserListServlet Config -->
     <servlet>
-  		<servlet-name>ListServObj</servlet-name>
-  		<servlet-class>com.revature.project1.servlets.ListServlet</servlet-class>
+  		<servlet-name>UserListServObj</servlet-name>
+  		<servlet-class>com.revature.project1.servlets.UserListServlet</servlet-class>
   	</servlet>
   	
   <!-- Mapping User to URI pattern -->
 	  <servlet-mapping>
-	  	<servlet-name>ListServObj</servlet-name>
-	  	<url-pattern>*.list</url-pattern>
-	  </servlet-mapping>	    
+	  	<servlet-name>UserListServObj</servlet-name>
+	  	<url-pattern>*.user-list</url-pattern>
+	  </servlet-mapping>  	    
 </web-app>

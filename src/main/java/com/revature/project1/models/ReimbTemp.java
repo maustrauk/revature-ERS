@@ -1,6 +1,5 @@
 package com.revature.project1.models;
 
-import java.util.Arrays;
 
 public class ReimbTemp {
 	private int reimbId;
@@ -8,7 +7,7 @@ public class ReimbTemp {
 	private String reimbSubmitted;
 	private String reimbResolved;
 	private String reimbDescription;
-	private byte[] reimbReceipt;
+	private String reimbReceipt;
 	private int reimbAuthor;
 	private String reimbResolver;
 	private int reimbStatusId;
@@ -20,7 +19,7 @@ public class ReimbTemp {
 	
 
 	public ReimbTemp(double reimbAmount, String reimbSubmitted, String reimbResolved, String reimbDescription,
-			byte[] reimbReceipt, int reimbAuthor, String reimbResolver, int reimbStatusId, int reimbTypeId) {
+			String reimbReceipt, int reimbAuthor, String reimbResolver, int reimbStatusId, int reimbTypeId) {
 		super();
 		this.reimbAmount = reimbAmount;
 		this.reimbSubmitted = reimbSubmitted;
@@ -36,7 +35,7 @@ public class ReimbTemp {
 
 
 	public ReimbTemp(int reimbId, double reimbAmount, String reimbSubmitted, String reimbResolved,
-			String reimbDescription, byte[] reimbReceipt, int reimbAuthor, String reimbResolver, int reimbStatusId,
+			String reimbDescription, String reimbReceipt, int reimbAuthor, String reimbResolver, int reimbStatusId,
 			int reimbTypeId) {
 		this.reimbId = reimbId;
 		this.reimbAmount = reimbAmount;
@@ -100,13 +99,13 @@ public class ReimbTemp {
 
 
 
-	public byte[] getReimbReceipt() {
+	public String getReimbReceipt() {
 		return reimbReceipt;
 	}
 
 
 
-	public void setReimbReceipt(byte[] reimbReceipt) {
+	public void setReimbReceipt(String reimbReceipt) {
 		this.reimbReceipt = reimbReceipt;
 	}
 
@@ -170,7 +169,7 @@ public class ReimbTemp {
 	public String toString() {
 		return "ReimbTemp [reimbId=" + reimbId + ", reimbAmount=" + reimbAmount + ", reimbSubmitted=" + reimbSubmitted
 				+ ", reimbResolved=" + reimbResolved + ", reimbDescription=" + reimbDescription + ", reimbReceipt="
-				+ Arrays.toString(reimbReceipt) + ", reimbAuthor=" + reimbAuthor + ", reimbResolver=" + reimbResolver
+				+ reimbReceipt + ", reimbAuthor=" + reimbAuthor + ", reimbResolver=" + reimbResolver
 				+ ", reimbStatusId=" + reimbStatusId + ", reimbTypeId=" + reimbTypeId + "]";
 	}
 	
