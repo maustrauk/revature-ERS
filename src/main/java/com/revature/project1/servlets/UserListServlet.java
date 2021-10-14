@@ -19,7 +19,7 @@ public class UserListServlet extends HttpServlet{
 		PrintWriter out = resp.getWriter();
 		resp.setContentType("application/json");
 		resp.setCharacterEncoding("UTF-8");
-		String json = jackson.toJsonString(ulDisp.process(req));
+		String json = jackson.userListToJsonString(ulDisp.process(req));
 		out.print(json);
 		out.flush(); 
 	}

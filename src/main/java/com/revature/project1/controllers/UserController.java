@@ -6,12 +6,14 @@ import javax.servlet.http.HttpServletRequest;
 
 
 import com.revature.project1.JacksonHelper;
+import com.revature.project1.PasswordEncrypter;
 import com.revature.project1.ServiceLoader;
 import com.revature.project1.models.User;
 
 public class UserController {
 	private final ServiceLoader sLoader = new ServiceLoader();
 	private final JacksonHelper jackson = new JacksonHelper();
+	private final PasswordEncrypter encryptPass = new PasswordEncrypter();
 	
 	public UserController() {
 	}
@@ -23,6 +25,9 @@ public class UserController {
 		}
 		
 		User parsedUser = jackson.reqJSONtoUser(req);
+		
+		parsedUser.setUserPassword(encryptPass.generateSecurePassword(parsedUser.getUserPassword(), encryptPass.downloadSalt()));
+		
 		
 		User user = sLoader.getUserService().verifyLoginCredentials(parsedUser.getUserName(), parsedUser.getUserPassword());
 		
@@ -43,6 +48,8 @@ public class UserController {
 		}
 		
 		User newUser = jackson.reqJSONtoUser(req);
+		
+		newUser.setUserPassword(encryptPass.generateSecurePassword(newUser.getUserPassword(), encryptPass.downloadSalt()));
 		
 		User user = sLoader.getUserService().insertUser(newUser);
 		if (user == null) {
