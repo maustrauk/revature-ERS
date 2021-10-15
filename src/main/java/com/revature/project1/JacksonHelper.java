@@ -48,7 +48,7 @@ public class JacksonHelper {
 		return tReimb;
 	}
 	
-	public String toJsonString(User result) {
+	public String userToJsonString(User result) {
 		try {
 			return mapper.writeValueAsString(result);
 		} catch (IOException e) {
@@ -57,7 +57,7 @@ public class JacksonHelper {
 		}
 	}
 	
-	public String toJsonString(Reimbursement result) {
+	public String reimbToJsonString(Reimbursement result) {
 		try {
 			return mapper.writeValueAsString(result);
 		} catch (IOException e) {
@@ -66,13 +66,22 @@ public class JacksonHelper {
 		}
 	}
 		
-	public String toJsonString(List result) {
+	public String userListToJsonString(List<User> result) {
 		try {
 			return mapper.writeValueAsString(result);
 		} catch (IOException e) {
 			log.callErrorLogger(e);
 			return null;
 		}
+	}
+	
+	public String reimbListToJsonString(List<Reimbursement> result) {
+			try {
+				return mapper.writeValueAsString(result);
+			} catch (IOException e) {
+				log.callErrorLogger(e);
+				return null;
+			}
 		
 	}
 	

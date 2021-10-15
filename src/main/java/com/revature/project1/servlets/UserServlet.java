@@ -19,7 +19,7 @@ public class UserServlet extends HttpServlet{
 		PrintWriter out = resp.getWriter();
 		resp.setContentType("application/json");
 		resp.setCharacterEncoding("UTF-8");
-		String json = jackson.toJsonString(uDisp.process(req));
+		String json = jackson.userToJsonString(uDisp.process(req));
 		out.print(json);
 		out.flush(); 
 	}
