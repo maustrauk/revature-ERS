@@ -78,5 +78,36 @@ public class UserController {
 		
 	}
 	
+	public User edit(HttpServletRequest req) {
+		System.out.println("In user controller signup");
+		if(!req.getMethod().equals("POST")) {
+			return null;
+		}
+		
+		User editUser = jackson.reqJSONtoUser(req);
+		
+		editUser.setUserPassword(encryptPass.generateSecurePassword(editUser.getUserPassword(), encryptPass.downloadSalt()));
+		
+		User user = sLoader.getUserService().getUserByName(editUser.getUserName());
+		
+		if (user == null) {
+			System.out.println("Some error");
+			return null;
+		} else {
+			user.setUserFirstName(editUser.getUserFirstName());
+			user.setUserLastName(editUser.getUserLastName());
+			user.setUserEmail(editUser.getUserEmail());
+			user.setUserPassword(editUser.getUserPassword());
+			
+			User returnedUser = sLoader.getUserService().updateUser(user);
+			if (returnedUser == null) {
+				System.out.println("Some error");
+				return null;
+			}
+			returnedUser.setUserPassword(null);
+			return returnedUser;
+		}
+	}
+	
 	
 }

@@ -80,16 +80,16 @@ public class UserService {
 	}
 	
 	public User updateUser(User user) {
-		if (uDao.getById(user.getUserId()) == null) {
-			throw new NullPointerException("There isn't a user with id: " + user.getUserId());
+		try {
+			if (uDao.getById(user.getUserId()) == null) {
+				throw new NullPointerException("There isn't a user with id: " + user.getUserId());
+			}
+			
+			return uDao.update(user);	
+		} catch(NullPointerException e) {
+			log.callErrorLogger(e);
+			return null;
 		}
-		
-		if (uDao.getByName(user.getUserName()).getUserId() != 0) {
-			throw new NullPointerException("There is a user with username: " + user.getUserName());
-		}
-		User updatedUser = uDao.update(user);
-		
-		return updatedUser;
 	}
 	
 	public void deleteUser(User user) {
