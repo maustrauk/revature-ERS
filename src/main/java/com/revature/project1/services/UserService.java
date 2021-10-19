@@ -65,7 +65,7 @@ public class UserService {
 		User checkUser = uDao.getByName(user.getUserName());
 		
 		try {
-			if(checkUser.getUserName() != null) {
+			if(checkUser != null) {
 				throw new NullPointerException("There is user with similar username: " + user.getUserName() + " in DB");
 			}
 			
