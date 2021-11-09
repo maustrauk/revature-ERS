@@ -42,7 +42,7 @@ PASSWORD={DB user password}
 
 ## Usage
 After launching this application you should see `INFO: Server startup in [...] milliseconds`.\
-You can use [Postman API](https://www.postman.com/) to check if you can reach featured endpoints:\
+You can use [Postman API](https://www.postman.com/) to check if you can reach featured endpoints using your `localhost:8080`:\
 ![Postman screenshot](/project_1_readme_1.jpg?raw=true)
 
 ## License
