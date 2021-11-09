@@ -27,8 +27,11 @@ List of features ready:
 
 ## Getting Started
 1. To upload this project you need to clone this repository using `git clone https://github.com/maustrauk/revature-ERS.git`
-2. Run As "Run on Server" cloned project in your Java IDE
-3. Make sure do download and install [front-end](https://github.com/maustrauk/revature-project-ERS-fe)
+2. Add `database.properties` file to `src/main/resources`. It should include ``` URL=jdbc:postgresql://{your DB URL}:{DB port}/{DB name}
+USERNAME={DB user name}
+PASSWORD={DB user password} ```
+3. Run As "Run on Server" cloned project in your Java IDE
+4. Make sure do download and install [front-end](https://github.com/maustrauk/revature-project-ERS-fe)
 
 
 ## Usage
