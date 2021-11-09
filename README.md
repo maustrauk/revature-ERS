@@ -12,8 +12,18 @@ The Expense Reimbursement System (ERS) will manage the process of reimbursing em
 
 ## Features
 List of features ready:
-
-To-do list:
+* Ready-for-deploy war back-end project.
+* Controller level for processing requests from endpoints: 
+  * /project1/login.user
+  * /project1/signup.user
+  * /project1/edit.user
+  * /project1/empl.user-list
+  * /project1/by-user-id.reimb-list
+  * /project1/add.reimb-list
+  * /project1/by-manager-id.reimb-list
+  * /project1/update.reimb-list
+* Service level for achieving business logic in operations with front-end and database.
+* Data Access Object (DAO) level for data transactions between application and its database.
 
 ## Getting Started
 To upload this project you need to clone this repository using `git clone https://github.com/maustrauk/revature-ERS.git`\
