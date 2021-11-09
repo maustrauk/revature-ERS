@@ -12,7 +12,7 @@ The Expense Reimbursement System (ERS) will manage the process of reimbursing em
 
 ## Features
 List of features ready:
-* Ready-for-deploy war back-end project.
+* Ready-for-deploy .war back-end project.
 * Controller level for processing requests from endpoints: 
   * /project1/login.user
   * /project1/signup.user
@@ -26,8 +26,10 @@ List of features ready:
 * Data Access Object (DAO) level for data transactions between application and its database.
 
 ## Getting Started
-To upload this project you need to clone this repository using `git clone https://github.com/maustrauk/revature-ERS.git`\
-Make sure do download and install [front-end](https://github.com/maustrauk/revature-project-ERS-fe)
+1. To upload this project you need to clone this repository using `git clone https://github.com/maustrauk/revature-ERS.git`\
+2. Run this project in your Java IDE\
+3. Make sure do download and install [front-end](https://github.com/maustrauk/revature-project-ERS-fe)
+
 
 ## Usage
 
