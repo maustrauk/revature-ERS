@@ -26,8 +26,8 @@ List of features ready:
 * Data Access Object (DAO) level for data transactions between application and its database.
 
 ## Getting Started
-1. To upload this project you need to clone this repository using `git clone https://github.com/maustrauk/revature-ERS.git`\
-2. Run this project in your Java IDE\
+1. To upload this project you need to clone this repository using `git clone https://github.com/maustrauk/revature-ERS.git`
+2. Run this project in your Java IDE
 3. Make sure do download and install [front-end](https://github.com/maustrauk/revature-project-ERS-fe)
 
 
