@@ -31,7 +31,7 @@ List of features ready:
 
 ```URL=jdbc:postgresql://{your DB URL}:{DB port}/{DB name}
 USERNAME={DB user name}
-PASSWORD={DB user password} ```
+PASSWORD={DB user password}```
 
 3. Run As "Run on Server" cloned project in your Java IDE
 4. Make sure do download and install [front-end](https://github.com/maustrauk/revature-project-ERS-fe)
