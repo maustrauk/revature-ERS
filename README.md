@@ -26,8 +26,8 @@ List of features ready:
 * Data Access Object (DAO) level for data transactions between application and its database.
 
 ## Getting Started
-1. To upload this project you need to clone this repository using `git clone https://github.com/maustrauk/revature-ERS.git`.
-2. Prepare your database for work with back-end.
+1. Prepare your database for work with back-end.
+2. To upload this project you need to clone this repository using `git clone https://github.com/maustrauk/revature-ERS.git`. 
 3. Add `database.properties` file to `src/main/resources`. It should include:
 
 ```
