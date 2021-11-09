@@ -5,9 +5,12 @@ The Expense Reimbursement System (ERS) will manage the process of reimbursing em
 
 ## Technologies Used
 * Java version 1.8
-
+* PostgreSQL version 9.4.1208
+* JDBC
+* AWS RDS
 
 ## Features
+List of features ready:
 
 
 ## Getting Started
@@ -15,9 +18,12 @@ The Expense Reimbursement System (ERS) will manage the process of reimbursing em
 ## Usage
 
 
+### [Front End URL](https://github.com/maustrauk/revature-project-ERS-fe)
+
+
 ## Contributors
 
 ## License
 
 
-### [Front End URL](https://github.com/maustrauk/revature-project-ERS-fe)
+
