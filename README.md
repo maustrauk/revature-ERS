@@ -15,8 +15,8 @@ List of features ready:
 To-do list:
 
 ## Getting Started
-To upload this project you need to clone this repository using `git clone https://github.com/maustrauk/revature-ERS.git`
-Make sure do download and install front-end(https://github.com/maustrauk/revature-project-ERS-fe)
+To upload this project you need to clone this repository using `git clone https://github.com/maustrauk/revature-ERS.git`.
+Make sure do download and install [front-end](https://github.com/maustrauk/revature-project-ERS-fe).
 
 ## Usage
 
