@@ -36,8 +36,9 @@ PASSWORD={DB user password}
 ```
 
 3. Add this project to your Java IDE.
-4. Run As "Run on Server" cloned project in your Java IDE.
-5. Make sure do download and install [front-end](https://github.com/maustrauk/revature-project-ERS-fe).
+4. Update Maven dependencies in project.
+5. Run As "Run on Server" cloned project in your Java IDE.
+6. Make sure do download and install [front-end](https://github.com/maustrauk/revature-project-ERS-fe).
 
 
 ## Usage
