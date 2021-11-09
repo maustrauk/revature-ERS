@@ -5,8 +5,8 @@ The Expense Reimbursement System (ERS) will manage the process of reimbursing em
 
 ## Technologies Used
 * Java version 1.8
-* PostgreSQL version 9.4.1208
-* JDBC
+* PostgreSQL version 13
+* JDBC version 9.4.1208
 * AWS RDS
 
 ## Features
