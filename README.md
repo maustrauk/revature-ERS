@@ -12,7 +12,7 @@ The Expense Reimbursement System (ERS) will manage the process of reimbursing em
 
 ## Features
 List of features ready:
-* Ready-for-deploy .war back-end project.
+* Ready-for-deploy .war back-end project for [front-end application](https://github.com/maustrauk/revature-project-ERS-fe).
 * Controller level for processing requests from endpoints: 
   * /project1/login.user
   * /project1/signup.user
