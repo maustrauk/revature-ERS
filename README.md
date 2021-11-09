@@ -24,6 +24,8 @@ List of features ready:
   * /project1/update.reimb-list
 * Service level for achieving business logic in operations with front-end and database.
 * Data Access Object (DAO) level for data transactions between application and its database.
+* User password encoding.
+* Receipt image upload in `.jpg` format.
 
 ## Getting Started
 1. Prepare your database for work with back-end.
