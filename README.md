@@ -26,7 +26,7 @@ List of features ready:
 * Data Access Object (DAO) level for data transactions between application and its database.
 
 ## Getting Started
-1. To upload this project you need to clone this repository using `git clone https://github.com/maustrauk/revature-ERS.git`
+1. To upload this project you need to clone this repository using `git clone https://github.com/maustrauk/revature-ERS.git`.
 2. Add `database.properties` file to `src/main/resources`. It should include:
 
 ```
@@ -35,12 +35,15 @@ USERNAME={DB user name}
 PASSWORD={DB user password}
 ```
 
-3. Run As "Run on Server" cloned project in your Java IDE
-4. Make sure do download and install [front-end](https://github.com/maustrauk/revature-project-ERS-fe)
+3. Add this project to your Java IDE.
+4. Run As "Run on Server" cloned project in your Java IDE.
+5. Make sure do download and install [front-end](https://github.com/maustrauk/revature-project-ERS-fe).
 
 
 ## Usage
-
+After launching this application you should see `INFO: Server startup in [...] milliseconds`.\
+You can use [Postman API](https://www.postman.com/) to check if you can reach featured endpoints:\
+![Postman screenshot](https://drive.google.com/file/d/1b-Mgd7ei2UmzmesLwo85ICzuTX82nSoo/view?usp=sharing)
 
 ## License
 MIT License
