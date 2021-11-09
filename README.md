@@ -21,8 +21,6 @@ Make sure do download and install [front-end](https://github.com/maustrauk/revat
 ## Usage
 
 
-## Contributors
-
 ## License
 MIT License
 
