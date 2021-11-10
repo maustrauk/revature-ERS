@@ -9,6 +9,9 @@ The Expense Reimbursement System (ERS) will manage the process of reimbursing em
 * JDBC version 9.4.1208
 * AWS RDS
 * HTML version 5
+* Log4j version 1.2.17
+* JUnit version 5.7.0
+* Mockito version 3.11.2
 
 ## Features
 List of features ready:
